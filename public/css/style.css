@@ -1,0 +1,262 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   
+    background: #fff url(../img/bg_main.gif) no-repeat center center fixed;
+    color: #000;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 13.5px;
+}
+
+.container{
+    background-color: #fff;
+    box-shadow: 0 0 10px 5px #0000003b;
+}
+
+.header .header_left_part .header_right_part  {
+
+    margin-top: 10px;
+}
+
+.header .header_left_part .logo_div{
+    float: left;
+   
+}
+
+.header .header_left_part .logo_div img{
+    width: 125px;
+} 
+
+.header .header_left_part .header_left_text{
+    padding-top: 15px;
+}
+
+
+.header .header_left_part .header_left_text h3 {
+    background-color: #ACF0F2;
+    font-size: 20px;
+    padding: 6px 0;
+    color: #000000;
+    font-weight: 800;
+    margin-left: 65px;
+    text-transform: capitalize;
+    text-align: left; 
+}
+    
+
+
+.header .header_left_part .header_left_text p{
+    background-color:#f2ffe3;
+    padding: 5px 10px 5px 92px;
+    font-size: 13px;
+    color: #0e0e0e !important;
+    margin-left:50px;
+    line-height: 1.4;
+}
+
+.header .header_right_part{
+    float: right;
+}
+
+.header .header_right_part .header_link ul{
+    list-style-type: none;
+
+}
+
+.header .header_right_part .header_link ul li{
+    float: left;
+    
+
+  
+}
+.header .header_right_part .header_link ul li::after{
+   
+  content: '';
+  border-right: 1px solid rgb(187, 176, 176);
+  
+}
+
+
+
+.header .header_right_part .header_link ul li a{
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+    font-size: 12px;
+   
+}
+.header .header_right_part .header_link ul li a:hover{
+    text-decoration: underline;
+    color: #1595A3;
+}
+
+.header .header_right_part .header_link ul li a .fas{
+    padding-right: 5px;
+}
+
+.header .header_right_part .advertise_part {
+    clear: both;
+    background-color: #f2f2cd;
+    height: 65px;
+    position: relative;
+    width: 367px;
+    float: right;
+    margin-top: 20px;
+}
+
+.header .header_right_part .advertise_part .mujib_logo img{
+    height: 65px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.header .header_right_part .advertise_part .payment_logo img {
+    height: 65px;
+    position: absolute;
+    left: 50px;
+}
+
+/* Navigation bar style*/
+.bg-bmdc {
+    background-color: #99F793 !important;
+}
+
+.navigation .navbar-nav {
+
+    background-color: #99F793;
+}
+.navigation .navbar .navbar-brand{
+    font-size: 16px;
+    margin-top: -16px;
+}
+
+.navigation .navbar-nav .nav-item{
+    border-right: 1px solid #dee2e6 ;
+   
+}
+
+.navigation .navbar-nav li:first-child, .navigation .navbar-nav li:last-child{
+    border-right: none ;
+}
+
+.navigation .navbar-nav li:nth-child(5) a.nav-link, .navigation .navbar-nav li:nth-child(6) a.nav-link{
+    color: red;
+}
+
+.navigation .navbar-nav .nav-item .nav-link{
+    color:#201d1dbf ;
+    padding-top: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.navigation .navbar .navbar-brand .fa-home {
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+.navigation .navbar-nav .nav-item:nth-child(1) .mega-menu {
+    width: 1050px;
+    overflow: hidden;
+    margin-top: 19px;
+}
+.navigation .navbar-nav .nav-item:nth-child(2) .mega-menu {
+    width: 150px;
+    overflow: hidden;
+    margin-top: 19px;
+}
+.navigation .navbar-nav .nav-item:nth-child(3) .mega-menu {
+    width: 780px;
+    overflow: hidden;
+    margin-top: 19px;
+}
+.navigation .navbar-nav .nav-item:nth-child(4) .mega-menu {
+    width: 750px;
+    overflow: hidden;
+    margin-top: 19px;
+}
+
+.mega-menu p {
+    line-height: 20px;
+    padding: 5px 10px;
+}
+
+.mega-menu p:hover{
+    background-color: #99F793;
+}
+
+.mega-menu  a {
+    color: #565c63;
+    font-weight: 400;
+    clear: both;
+    width: 100%;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 0;
+    padding: 0;
+}
+
+.dropdown:hover>.dropdown-menu{
+    display: block;
+}
+
+
+/******Home Page Content Section********/
+
+.marque .alert{
+
+    padding: 2px 5px !important;
+}
+
+
+.marque .alert p {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+
+/******Footer Section********/
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer .footer-first-col h6, .footer .footer-second-col h6, .footer .footer-third-col h6, .footer .footer-fourth-col h6{
+
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+}
+
+.footer .footer-second-col ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer .footer-second-col a{
+    text-decoration: none;
+    color: #6c757d !important;
+    font-size: 15px;
+}
+
+.footer .footer-second-col a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
