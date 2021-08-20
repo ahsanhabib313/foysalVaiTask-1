@@ -222,6 +222,12 @@ body{
 }
 
 
+/** Presentation section ***/
+
+#presentation .left-section {
+    box-shadow: 0px 0px 1px grey;
+}
+
 
 /******Footer Section********/
 
