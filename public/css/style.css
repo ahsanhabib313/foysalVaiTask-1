@@ -221,6 +221,37 @@ body{
     text-transform: uppercase;
 }
 
+.presentation-left-section{
+    box-shadow: 0px 1px 2px grey;
+}
+
+#curriculum .curriculum-heading{
+    font-size: 20px;
+}
+
+#curriculum .card-body{
+    text-align: center;
+}
+
+#curriculum .card-body img{
+    height: 50px;
+    width: 50px;
+
+}
+
+#curriculum .card-body h5.news-title{
+    font-weight: bold;
+    font-size: 16px;
+}
+#curriculum .card .card-footer a{
+    color: grey;
+}
+
+#curriculum .card .card-footer a:hover{
+    text-decoration: none;
+}
+
+
 
 /** Presentation section ***/
 
