@@ -64,42 +64,35 @@
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   FORMS
+                   ADMISSION
                   </a>
                   <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                     <div class="row">
                         <div class="col-md-4">
-                         <p><a href="#">Guideline for Recognition of a medical journal</a></p>
-                         <p><a href="#">How it Works</a></p>
-                         <p><a href="#">Institution Organogram</a></p>
+                         <p><a href="#">RMP</a></p>
+                         <p><a href="#">LMAFP</a></p>
+                         <p><a href="#">DMS</a></p>
+                         <p><a href="#">DMA</a></p>
+                         <p><a href="#">DDT</a></p>
+                         <p><a href="#">D.O</a></p>
                         
                         </div>
                        
-                        <div class="col-md-4">
-                          <p><a href="#">Introduction</a></p>
-                           <p><a href="#">List of Medical and Dental Journals</a></p>
-                           <p><a href="#">New list of Recognized Medical & Dental
-                              Colleges and Dental Units(Govt. & Non-Govt.)</a></p>
-                        </div>
-                        <div class="col-md-4">
-                          <p><a href="#">Old list of Recognized Medical & Dental
-                            Colleges</a></p>
-                           
-                        </div>
+                       
                          
                        
                     </div>
                 </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   REQUIREMENT OF DIFF. CERT.
+                <li class="nav-item ">
+                  <a class="nav-link" href="#" {{-- id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" --}}>
+                   Registration
                   </a>
-                  <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
+                 {{--  <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                     <div class="row">
                         <div class="col-md-3">
-                         <p><a href="#">Guideline for Recognition of a medical journal</a></p>
+                         <p><a href="#"></a></p>
                          <p><a href="#">How it Works</a></p>
                          <p><a href="#">Institution Organogram</a></p>
                         
@@ -125,18 +118,18 @@
                             <p><a href="#">Amended schedule of Bangladesh Medical & Dental Councils</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">FIND REGISTERED DOCTOR</a>
+                  <a class="nav-link" href="#">Member</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">FIND REGISTERED MEDICAL ASSISTANT</a>
+                  <a class="nav-link" href="#">Find Registered Rural Physicians</a>
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">CONTACT</a>
+                  <a class="nav-link" href="#">Contact</a>
                 </li>
              
             </ul>

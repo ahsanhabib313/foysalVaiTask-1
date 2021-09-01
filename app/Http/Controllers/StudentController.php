@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,24 +14,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    /** Register ******/
-
-    public function register(Request $request){
-        return view('register-form');
+        //
     }
 
     /**
-     * Show the form for creating a new studnet.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function showAdmissionForm()
+    public function create()
     {
-
-        return view('admission');
+        //
     }
 
     /**
@@ -47,10 +41,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
         //
     }
@@ -58,10 +52,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
         //
     }
@@ -70,10 +64,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
         //
     }
@@ -81,10 +75,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
         //
     }

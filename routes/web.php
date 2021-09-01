@@ -15,3 +15,5 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/home',[HomeController::class, 'index'] )->name('index');
+//Route::get('/register',[HomeController::class, 'register'])->name('register');
+Route::get('/admission', [HomeController::class, 'showAdmissionForm'])->name('show.admission.form');

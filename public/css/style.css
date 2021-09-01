@@ -164,22 +164,22 @@ body{
 .navigation .navbar-nav .nav-item:nth-child(1) .mega-menu {
     width: 1050px;
     overflow: hidden;
-    margin-top: 19px;
+    margin-top: 7px;
 }
 .navigation .navbar-nav .nav-item:nth-child(2) .mega-menu {
     width: 150px;
     overflow: hidden;
-    margin-top: 19px;
+    margin-top: 7px;
 }
 .navigation .navbar-nav .nav-item:nth-child(3) .mega-menu {
     width: 780px;
     overflow: hidden;
-    margin-top: 19px;
+    margin-top: 7px;
 }
 .navigation .navbar-nav .nav-item:nth-child(4) .mega-menu {
     width: 750px;
     overflow: hidden;
-    margin-top: 19px;
+    margin-top: 7px;
 }
 
 .mega-menu p {
@@ -257,6 +257,13 @@ body{
 
 #presentation .left-section {
     box-shadow: 0px 0px 1px grey;
+}
+
+
+/****** Admission Form Section *******/
+
+#admissionForm{
+  margin-bottom: 100px;
 }
 
 

@@ -11,6 +11,7 @@
     <link href="{{asset('css')}}/style.css" rel="stylesheet">
 
     <title>HE&DF</title>
+       @livewireStyles
   </head>
   <body>
    <div class="container">
@@ -40,6 +41,6 @@
   interval: 5000
 })
   </script>   
-
+ @livewireScripts
 </body>
 </html>
