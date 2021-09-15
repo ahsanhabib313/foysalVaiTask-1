@@ -5,6 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Student;
+use App\Models\Division;
+use App\Models\District;
+use App\Models\Upozilla;
+use App\Models\BranchName;
+use App\Models\Qualification;
 
 class AdmissionForm extends Component
 {
@@ -19,13 +24,13 @@ class AdmissionForm extends Component
     public $mobile;
     public $nid;
     public $birthCertificate;
-    public $birthOfBirth;
+    public $birthOfDate;
     public $presentDivision;
     public $presentDistrict;
     public $presentUpozilla;
     public $presentPostOffice;
     public $presentPostCode;
-    public $presentBranchName;
+    public $branchName;
     public $checkAddress;
     public $permanentDivision;
     public $permanentDistrict;
@@ -34,23 +39,20 @@ class AdmissionForm extends Component
     public $permanentPostCode;
     public $photo;
     public $signature;
-    public $qualification;
+    public $qualification = [];
+    public $transectionId;
+
+    
+  
+
+ 
+    
 
     public $totalStep = 4;
     public $currentStep = 1;
 
-
-    public function mount(){
-        $this->currentStep = 1;
-    }
-
-    public function render()
-    {
-        return view('livewire.admission-form');
-    }
-
     public function decreaseStep(){
-
+         $this->resetErrorBag();
         $this->currentStep--;
         if($this->currentStep < 1){
             $this->currentStep = 1;
@@ -58,12 +60,56 @@ class AdmissionForm extends Component
     }
 
     public function increaseStep(){
+       $this->resetErrorbag();
+       $this->validateDate();
 
         $this->currentStep++;
         if($this->currentStep > $this->totalStep){
             $this->currentStep = $this->totalStep;
         }
+    
     }
+    public function mount(){
+        $this->currentStep = 1;
+    }
+
+  
+    public $districts;
+    public $upozillas;
+    public $permanentDistricts;
+    public $permanentUpozillas;
+
+
+    public function render()
+    {
+        $divisions = Division::all();
+        $branchNames = BranchName::all();
+        $permanentDivisions = Division::all();
+        $qualifications = Qualification::all();
+        return view('livewire.admission-form',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications'));
+    }
+
+    public function updatedPresentDivision($divId){
+
+        $this->districts = District::where('division_id', $divId)->get();
+
+    }
+    public function updatedPresentDistrict($divId){
+
+        $this->upozillas = Upozilla::where('district_id', $divId)->get();
+
+    }
+    public function updatedPermanentDivision($divId){
+
+        $this->permanentDistricts = District::where('division_id', $divId)->get();
+
+    }
+    public function updatedPermanentDistrict($divId){
+
+        $this->permanentUpozillas = Upozilla::where('district_id', $divId)->get();
+
+    }
+
 
     public function validateDate(){
 
@@ -78,19 +124,94 @@ class AdmissionForm extends Component
                 'mobile' => 'required',
                 'nid' => 'required|string',
                 'birthCertificate' => 'required|string',
-                'birthOfBirth' => 'required|',
+                'birthOfDate' => 'required',
 
             ]);
 
         }elseif($this->currentStep == 2){
 
-        }elseif($this->currentStep == 3){
+            $this->validate([
+                'presentDivision' => 'required',
+                'presentDistrict' => 'required',
+                'presentUpozilla' => 'required',
+                'presentPostOffice' => 'required',
+                'presentPostCode' => 'required',
+                'branchName' => 'required'
+            ]);
 
         }
-
     }
 
     public function register(){
+
+        if($this->currentStep == 4){
+
+            $this->validate([
+
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'signature' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'qualification' => 'required',
+                'transectionId' => 'required'
+            ]);
+            
+            $image = $this->photo->store('photos');
+            $signature = $this->signature->store('photos');
+
+         $registrationNum = random_int(0, 99999999);
+         $checkReg = Student::where('registrationNum', $registrationNum)->first();
+         while($checkReg){
+            $registrationNum = random_int(0, 99999999);
+            $checkReg = Student::where('registrationNum', $registrationNum)->first();
+         }
+
+         if(!empty($this->checkAddress)){
+               
+            $this->permanentDivision = $this->presentDivision;
+            $this->permanentDistrict = $this->presentDistrict;
+            $this->permanentUpozilla = $this->presentUpozilla;
+            $this->permanentPostOffice = $this->presentPostOffice;
+            $this->permanentPostCode = $this->presentPostCode;
+   
+         }
+
+         $data = [
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'fatherName' => $this->fatherName,
+            'motherName' => $this->motherName,
+            'email' => $this->email,
+            'gender' =>$this->gender,
+            'mobile' =>$this->mobile,
+            'nid' =>$this->nid,
+            'birthCertificate' => $this->birthCertificate,
+            'birthOfDate' => $this->birthOfDate,
+            'presentDivision_id' => $this->presentDivision,
+            'presentDistrict_id' => $this->presentDistrict,
+            'presentUpozilla_id' => $this->presentUpozilla,
+            'presentPostOffice' => $this->presentPostOffice,
+            'presentPostCode' => $this->presentPostCode,
+            'branch_name_id' => $this->branchName,
+            'checkAddress' => $this->checkAddress,
+            'permanentDivision_id' => $this->permanentDivision,
+            'permanentDistrict_id' => $this->permanentDistrict,
+            'permanentUpozilla_id' => $this->permanentUpozilla,
+            'permanentPostOffice' => $this->permanentPostOffice ,
+            'permanentPostCode' => $this->permanentPostCode,
+            'photo' => $image,
+            'signature' => $signature,
+            'qualification' =>json_encode($this->qualification),
+            'registrationNum' => $registrationNum,
+            'transectionId' => $this->transectionId,
+            'status' => 0
+        ];
+
+        Student::insert($data);
+        session()->flash('message', 'Your credentials that have provided have been saved and Now your Registaration request is pending, after checking your Transection ID,
+        your Registration will be confirmed and will be given a Registration ID via SMS, Thank You');
+        $this->reset();
+        $this->currentStep = 1;  
+
+        }
 
     }
 }

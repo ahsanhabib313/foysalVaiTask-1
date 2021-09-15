@@ -3,10 +3,10 @@
 
 {{--marque section--}}
     
-   <section class="marque">
+   <section class="marque my-3">
 
             <div class="alert alert-success">
-               <p class="alert-success font-weight-bold pb-1 m-0 pt-2 "><marquee  direction="left">Welcome to your Official website of Health Education and Development Foundation</marquee></p>
+               <p class="alert-success font-weight-bold pb-1 m-0 pt-1 "><marquee  direction="left">Welcome to your Official website of Health Education and Development Foundation</marquee></p>
             </div>
 
    </section>
@@ -57,37 +57,103 @@
                             <p>Health Education & Development Foundation </p>
                         </div>
                         <div class="col">
-                            <img class="rounded-circle border shadow-lg mb-4" src="https://www.bmdc.org.bd/cis/web/img/photo_president.png" alt width="140" height="140">
-                            <h4 class="web-header font-weight-bold">Prof. Mohammad Sahidullah</h4>
-                            <p class="font-weight-bold">President</p>
+                            <img class="rounded-circle border shadow-lg mb-4" src="https://www.bmdc.org.bd/cis/web/img/photo_registrer.png" alt width="140" height="140">
+                            <h4 class="web-header font-weight-bold">Dr. Md. Arman Hossain</h4>
+                            <p class="font-weight-bold">Registrar (Acting)</p>
                             <p>Health Education & Development Foundation </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="my-3 p-3 bg-white rounded box-shadow shadow-sm">
-
-                    <h5 class="border-bottom border-gray pb-2 mb-0 text-muted font-weight-bold">Recent News/Updates</h5>
+                <div class="my-3 p-3 news-section " id="news-section">
+                    <h5 class="recent-news border-bottom border-gray pb-2 mb-0 text-muted font-weight-bold">Recent News/Updates</h5>
                     <div class="news-scroll">
-
-                        <div class="card" >
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
+                        <div class="card news-card" >
+                            <ul id="news-ticker">
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Sheikh Ahsan Habib(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="news-list ">
+                                    <div class="news-feed">
+                                        <div class="news-img">
+                                            <img  src="../img/download.svg" width="32" height="32">
+                                        </div>
+                                        <div class="news-details">
+                                            <p class="news-type text-muted">23/04/2021- @notice</p>
+                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
+                           
                         </div>
-                        <div class="float-right mt-4 mb-4"><a href="#">All Updates</a></div>
-
+                       
                     </div>
-
+                    <a class="all-update-news" href="#">All Updates</a>
                 </div>
 
             </div>
@@ -156,7 +222,42 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script type="text/javascript">
+
+        var interval;
+
+        function startTicker()
+        {
+
+            $('.news-list:first').slideUp(function(){
+                $(this).appendTo($('#news-ticker')).slideDown();
+            })
+
+        }
+
+        function stopTicker(){
+
+            clearInterval(interval)
+
+        }
+
+        $(document).ready(function(){
+
+            interval = setInterval(startTicker, 2000);
+            $('#news-ticker').hover(function(){
+                    stopTicker()
+            }, function(){
+                interval = setInterval(startTicker, 2000);
+            });
+        })
+
+        
+
+
+
+
+ </script>

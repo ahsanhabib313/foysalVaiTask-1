@@ -8,8 +8,8 @@
             <p><img src="../img/logo.png" width="50" height="50"></p>
              <h6 >Health Education and Development Foundation</h6>
              <p class ="d-block mb-3 text-muted">@c 2020-2021</p>
-             <p class ="d-block mb-3 text-muted">Copyright © 1973 - 2018 Bangladesh Medical and Dental Council (BM&DC)</p>
-             <p class ="d-block mb-3 text-muted"><span>Developed by</span> - Promiti Computers & Network (Pvt.) Ltd.</p>
+             <p class ="d-block mb-3 text-muted">Copyright © 1973 - 2018 Health Education and Development Foundation (HE&DF</p>
+             <p class ="d-block mb-3 text-muted"><span>Developed by</span> - Sheikh Ahsan Habib. IIT, University Of Dhaka.</p>
 
           </div>
 

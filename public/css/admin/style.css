@@ -1,0 +1,22 @@
+.register,.login{
+    min-height: 1000px;
+    width: auto;
+  
+
+}
+
+#content{
+    background-color: burlywood;
+   
+}
+.middle-content{
+    min-height: 500px;
+}
+
+.topbar{
+    background-color: #093256 !important;
+}
+
+.fa-folder{
+    color: white;
+}
