@@ -7,6 +7,28 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+
+       // show the students that are Pending
+
+       public function showStudent(Request $request){
+        $students = Student::where('status', 0)->get();
+        return view('admin.showStudent', compact('students'));
+    }
+
+    // active the pending students
+
+    public function activeStudent($id){
+
+        $updated = Student::where('id', $id)
+                           ->update([
+                               'status' => 1
+                           ]);
+
+       $student = Student::where('id', $id)->first();
+        if($updated){
+            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$student->registrationNum.'.');
+        }
+    }
     /**
      * Display a listing of the resource.
      *

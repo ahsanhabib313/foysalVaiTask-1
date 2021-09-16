@@ -8,6 +8,13 @@
             <div class="col-md-12">
                 <h3 class="text-center my-3">All Curriculums</h3>
             </div>
+            <div class="offset-md-3 col-md-6">
+                @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+            </div>
             <div class="col-md-12">
                 <table class="table table-striped  text-dark text-center">
                     <thead class="thead-dark">
@@ -18,15 +25,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-light">
-                            <td>Title-1</td>
-                            <td>File</td>
-                            <td>
-                                <a class="btn btn-success" href="">Edit</a>
-                                <a class="btn btn-danger" href="#">Delete</a>
-                            
-                            </td>
-                        </tr>
+                        @isset($curriculums)
+
+                        @foreach ($curriculums as $curriculum)
+                            <tr class="bg-light">
+                                <td>{{$curriculum->title}}</td>
+                                <td>{{$curriculum->file}}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{{route('admin.edit.curriculum', $curriculum->id)}}">Edit</a>
+                                    <a class="btn btn-danger" href="{{route('admin.delete.curriculum', $curriculum->id)}}">Delete</a>
+                                
+                                </td>
+                            </tr>
+                        @endforeach
+                        @endisset
+                       
                         
                     </tbody>
                 </table>

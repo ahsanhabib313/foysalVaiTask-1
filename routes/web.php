@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SlidePhotoController;
+use App\Http\Controllers\RecentNewsController;
+use App\Http\Controllers\CurriculumController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\NoticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,23 +34,65 @@ Route::prefix('admin')->group(function(){
     Route::middleware(['web'])->group(function () {
 
      
-         Route::get('/index', [AdminController::class, 'index'])->name('admin.index');
-         Route::get('/add/employee', [AdminController::class, 'addEmployee'])->name('admin.add.employee');
-         Route::post('/store/employee', [AdminController::class, 'storeEmployee'])->name('store.employee');
-         Route::get('/show/employee', [AdminController::class, 'showEmployee'])->name('admin.show.employee');
-         Route::get('/edit/employee', [AdminController::class, 'editEmployee'])->name('admin.edit.employee');
-         Route::get('/add/slide/photo', [AdminController::class, 'addSlidePhoto'])->name('admin.add.slide.photo');
-         Route::get('/show/slide/photo', [AdminController::class, 'showSlidePhoto'])->name('admin.show.slide.photo');
-         Route::get('/show/student', [AdminController::class, 'showStudent'])->name('admin.show.student');
-         Route::get('/student/active/{id}', [AdminController::class, 'activeStudent'])->name('admin.active.student');
-         Route::get('/add/recent/news/show', [AdminController::class, 'addRecentNewsShow'])->name('admin.add.recent.news.show');
-         Route::get('/show/recent/news', [AdminController::class, 'showRecentNews'])->name('admin.show.recent.news');
-         Route::get('add/curriculum/show', [AdminController::class, 'addCurriculum'])->name('admin.add.curriculum.show');
-         Route::get('/show/curriculum', [AdminController::class, 'showCurriculum'])->name('admin.show.curriculum');
-         Route::get('add/address/show', [AdminController::class, 'addAddress'])->name('admin.add.address.show');
-         Route::get('admin/show/address', [AdminController::class, 'showAddress'])->name('admin.show.address');
-         Route::get('admin/add/notice/show', [AdminController::class, 'addNotice'])->name('admin.add.notice.show');
-         Route::get('admin/show/notice', [AdminController::class, 'showNotice'])->name('admin.show.notice');
+         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+         
+         /**********employee route*********/
+         Route::get('/add/employee', [EmployeeController::class, 'create'])->name('admin.add.employee');
+         Route::post('/store/employee', [EmployeeController::class, 'store'])->name('store.employee');
+         Route::get('/show/employee', [EmployeeController::class, 'show'])->name('admin.show.employee');
+         Route::get('/edit/employee/{id}', [EmployeeController::class, 'edit'])->name('admin.edit.employee');
+         Route::post('/update/employee/{id}',[EmployeeController::class, 'update'])->name('admin.update.employee');
+         Route::get('/delete/employee/{id}',[EmployeeController::class, 'destroy'])->name('admin.delete.employee');
+         
+
+         /**********employee route*********/
+         Route::get('/add/slide/photo', [SlidePhotoController::class, 'create'])->name('admin.add.slide.photo');
+         Route::post('/store/slide/photo', [SlidePhotoController::class, 'store'])->name('admin.store.slide.photo');
+         Route::get('/show/slide/photo', [SlidePhotoController::class, 'show'])->name('admin.show.slide.photo');
+         Route::get('/destroy/slide/photo/{id}', [SlidePhotoController::class, 'destroy'])->name('admin.destroy.slide.photo');
+        
+        
+         /**********students route*********/
+         Route::get('/show/student', [StudentController::class, 'showStudent'])->name('admin.show.student');
+         Route::get('/student/active/{id}', [StudentController::class, 'activeStudent'])->name('admin.active.student');
+    
+       
+         /**********recent news route*********/
+         Route::get('/add/recent/news/show', [RecentNewsController::class, 'create'])->name('admin.create.recent.news');
+         Route::post('/store/recent/news/', [RecentNewsController::class, 'store'])->name('admin.store.recent.news');
+         Route::get('/show/recent/news', [RecentNewsController::class, 'show'])->name('admin.show.recent.news');
+         Route::get('/edit/recent/news/{id}', [RecentNewsController::class, 'edit'])->name('admin.edit.recent.news');
+         Route::post('/update/recent/news/{id}', [RecentNewsController::class, 'update'])->name('admin.update.recent.news');
+         Route::get('/delete/recent/news/{id}', [RecentNewsController::class, 'destroy'])->name('admin.delete.recent.news');
+
+        
+         /**********curriculum route*********/
+         Route::get('create/curriculum/', [CurriculumController::class, 'create'])->name('admin.add.curriculum.show');
+         Route::post('store/curriculum/', [CurriculumController::class, 'store'])->name('admin.store.curriculum');
+         Route::get('/show/curriculum', [CurriculumController::class, 'show'])->name('admin.show.curriculum');
+         Route::get('/edit/curriculum/{id}', [CurriculumController::class, 'edit'])->name('admin.edit.curriculum');
+         Route::post('/update/curriculum/{id}', [CurriculumController::class, 'update'])->name('admin.update.curriculum');
+         Route::get('/delete/curriculum/{id}', [CurriculumController::class, 'destroy'])->name('admin.delete.curriculum');
+        
+
+        
+        /**********address route*********/
+         Route::get('create/address/', [AddressController::class, 'create'])->name('admin.add.address.show');
+         Route::post('store/address/', [AddressController::class, 'store'])->name('admin.store.address');
+         Route::get('show/address/', [AddressController::class, 'show'])->name('admin.show.address');
+         Route::get('edit/address/{id}', [AddressController::class, 'edit'])->name('admin.edit.address');
+         Route::post('update/address/{id}', [AddressController::class, 'update'])->name('admin.update.address');
+         Route::get('delete/address/{id}', [AddressController::class, 'destroy'])->name('admin.delete.address');
+         
+
+         /**********notice route*********/
+         Route::get('/create/notice/', [NoticeController::class, 'create'])->name('admin.add.notice.show');
+         Route::post('/store/notice/', [NoticeController::class, 'store'])->name('admin.store.notice');
+         Route::get('show/notice', [NoticeController::class, 'show'])->name('admin.show.notice');
+         Route::get('/edit/notice/{id}', [NoticeController::class, 'edit'])->name('admin.edit.notice');
+         Route::post('update/notice/{id}', [NoticeController::class, 'update'])->name('admin.update.notice');
+         Route::get('delete/notice/{id}', [NoticeController::class, 'destroy'])->name('admin.delete.notice');
 
 
     });

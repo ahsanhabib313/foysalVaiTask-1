@@ -1,8 +1,8 @@
 @extends('admin.layout.adminPanel');
-@section('title', 'Add Curriculum')
+@section('title', 'Edit Curriculum')
 
 @section('content')
-    <div class="add-employee " class="middle-content">
+    <div class="edit-employee " class="middle-content">
         <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -12,12 +12,12 @@
                 </div>
                 @endif
                 <div class="jumbotron bg-light text-dark font-weight-bold mt-2 mb-5">
-                    <h2 class="text-center text-success">Add Curriculum </h2>
-                        <form action="{{route('admin.store.curriculum')}}" method="POST" enctype="multipart/form-data">
+                    <h2 class="text-center text-success">Edit Curriculum </h2>
+                        <form action="{{route('admin.update.curriculum', $curriculum->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title</label>
-                                <input type="title" name="title" class="form-control" placeholder="Enter Title">
+                                <input type="title" name="title" value="{{$curriculum->title}}" class="form-control" placeholder="Enter Title">
                                 @if ($errors->has('title'))
                                     <p class="text-danger"> {{$errors->first('title')}}</p>
                                  @endif
@@ -30,7 +30,7 @@
                                 <p class="text-danger"> {{$errors->first('file')}}</p>
                              @endif
                             </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                        
                 </div>

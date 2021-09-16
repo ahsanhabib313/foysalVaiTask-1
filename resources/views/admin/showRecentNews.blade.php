@@ -7,28 +7,37 @@
             <div class="col-md-12">
                 <h3 class="text-center my-3">All Recent News</h3>
             </div>
+            <div class="col-md-6 offset-md-3">
+                @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+            </div>
             <div class="col-md-12">
                 <table class="table table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
-                            
-                            <th> Title</th>
+                            <th>Title</th>
                             <th>Type</th>
                             <th>File</th>
                             <th>Action </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-light">
-                            <td>Title 1</td>
-                            <td>notice </td>
-                            <td>File</td>
-                            <td> 
-                                <a class="btn btn-success" href="#">Edit</a>
-                                <a class="btn btn-danger" href="#">Delete</a>
-                            </td>
-                        </tr>
-                       
+                        @isset($recentNews)
+                            @foreach($recentNews as $item)
+                                <tr class="bg-light">
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->type}}</td>
+                                    <td>{{$item->file}}</td>
+                                    <td> 
+                                        <a class="btn btn-success" href="{{route('admin.edit.recent.news', $item->id)}}">Edit</a>
+                                        <a class="btn btn-danger" href="{{route('admin.delete.recent.news', $item->id)}}">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endisset
                     </tbody>
                 </table>
             </div>

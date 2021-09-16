@@ -8,6 +8,13 @@
             <div class="col-md-12">
                 <h3 class="text-center my-3">All Address</h3>
             </div>
+            <div class="offset-md-3 col-md-6">
+                @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+            </div>
             <div class="col-md-12">
                 <table class="table table-striped  text-dark text-center">
                     <thead class="thead-dark">
@@ -20,17 +27,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-light">
-                            <td>address</td>
-                            <td>telephone</td>
-                            <td>fax</td>
-                            <td>email</td>
-                            <td>
-                                <a class="btn btn-success" href="">Edit</a>
-                                <a class="btn btn-danger" href="#">Delete</a>
+                        @isset($addresses)
                             
-                            </td>
-                        </tr>
+                            @foreach ($addresses as $address)
+                            <tr class="bg-light">
+                                <td>{{$address->address}}</td>
+                                <td>{{$address->telephone}}</td>
+                                <td>{{$address->fax}}</td>
+                                <td>{{$address->email}}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{{route('admin.edit.address', $address->id)}}">Edit</a>
+                                    <a class="btn btn-danger" href="{{route('admin.delete.address', $address->id)}}">Delete</a>
+                                
+                                </td>
+                            </tr>
+                            @endforeach
+                        @endisset
+                        
                         
                     </tbody>
                 </table>
