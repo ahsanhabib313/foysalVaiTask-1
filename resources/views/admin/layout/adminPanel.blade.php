@@ -154,6 +154,34 @@
                         </div>
                     </div>
                 </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#course"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Course</span>
+                    </a>
+                    <div id="course" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="{{route('admin.create.course')}}">Add Course</a>
+                            <a class="collapse-item" href="{{route('admin.show.course')}}">Show Course</a>
+                        </div>
+                    </div>
+                </li>
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#officeLocation"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Office Location</span>
+                    </a>
+                    <div id="officeLocation" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="{{route('admin.create.office.location')}}">Add </a>
+                            <a class="collapse-item" href="{{route('admin.show.office.location')}}">Show </a>
+                        </div>
+                    </div>
+                </li>
               
             </ul>
             <!-- End of Sidebar -->

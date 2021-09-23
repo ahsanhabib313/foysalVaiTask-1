@@ -31,6 +31,7 @@ class CreateStudentsTable extends Migration
             $table->string('presentPostOffice');
             $table->bigInteger('presentPostCode');
             $table->unsignedInteger('branch_name_id');
+            $table->unsignedInteger('course_id');
             $table->string('checkAddress')->nullable();   
             $table->unsignedInteger('permanentDivision_id')->nullable();
             $table->unsignedInteger('permanentDistrict_id')->nullable();
@@ -42,6 +43,7 @@ class CreateStudentsTable extends Migration
             $table->string('qualification');
             $table->bigInteger('registrationNum');
             $table->string('transectionId');
+            $table->bigInteger('bikas_number');
             $table->bigInteger('status');
 
             $table->timestamps();
@@ -50,6 +52,7 @@ class CreateStudentsTable extends Migration
             $table->foreign('presentDistrict_id')->references('id')->on('districts')->onDelete('cascade');
             $table->foreign('presentUpozilla_id')->references('id')->on('upozillas')->onDelete('cascade');
             $table->foreign('branch_name_id')->references('id')->on('branch_names')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('permanentDivision_id')->references('id')->on('divisions')->onDelete('cascade');
             $table->foreign('permanentDistrict_id')->references('id')->on('districts')->onDelete('cascade');
             $table->foreign('permanentUpozilla_id')->references('id')->on('upozillas')->onDelete('cascade');

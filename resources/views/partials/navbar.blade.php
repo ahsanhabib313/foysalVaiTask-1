@@ -36,30 +36,26 @@
                           <div class="col-md-12">
                            <a href="#">Guideline for Recognition </a>
                            <a href="#">How it Works</a>
-                           <a href="#">Institution Organogram</a>
+                           <a href="#">Institution Organogram</a> 
                           </div>
 
                         </div>
                   </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   ADMISSION
+                <li class="nav-item ">
+                  <a class="nav-link " href="{{route('show.admission.form')}}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+                   Admission
                   </a>
-                  <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
+                  {{-- <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                     <div class="row">
                         <div class="col-md-12">
-                         <a href="{{route('show.admission.form')}}">RMP</a>
-                         <a href="{{route('show.admission.form')}}">LMAFP</a>
-                         <a href="{{route('show.admission.form')}}">DMS</a>
-                         <a href="{{route('show.admission.form')}}">DMA</a>
-                         <a href="{{route('show.admission.form')}}">DDT</a>
-                         <a href="{{route('show.admission.form')}}">D.O</a>
+                         <a href="">RMP</a>
+                       
                         
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 </li>
 
                 <li class="nav-item ">
@@ -99,7 +95,7 @@
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">Member</a>
+                  <a class="nav-link" href="{{route('show.member.form')}}">Member</a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="#">Find Registered Rural Physicians</a>

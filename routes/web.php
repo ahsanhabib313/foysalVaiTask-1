@@ -9,6 +9,8 @@ use App\Http\Controllers\RecentNewsController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\OfficeLocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ use App\Http\Controllers\NoticeController;
 
 Route::get('/home',[HomeController::class, 'index'] )->name('home');
 Route::get('/admission', [HomeController::class, 'showAdmissionForm'])->name('show.admission.form');
+Route::get('/member', [HomeController::class, 'showMemberForm'])->name('show.member.form');
 
 
 /**  Admin routes **/
@@ -95,6 +98,22 @@ Route::prefix('admin')->group(function(){
          Route::get('delete/notice/{id}', [NoticeController::class, 'destroy'])->name('admin.delete.notice');
 
 
+
+         /**********course route*********/
+         Route::get('/create/course/', [CourseController::class, 'create'])->name('admin.create.course');
+         Route::post('/store/course/', [CourseController::class, 'store'])->name('admin.store.course');
+         Route::get('/show/course/', [CourseController::class, 'show'])->name('admin.show.course');
+         Route::get('edit/course/{id}', [CourseController::class, 'edit'])->name('admin.edit.course');
+         Route::post('update/course/{id}', [CourseController::class, 'update'])->name('admin.update.course');
+         Route::get('delete/course/{id}', [CourseController::class, 'destroy'])->name('admin.delete.course');
+
+
+         /**********offcie location route*********/
+         Route::get('/create/office/location', [OfficeLocationController::class, 'create'])->name('admin.create.office.location');
+         Route::post('/store/office/location', [OfficeLocationController::class, 'store'])->name('admin.store.office.location');
+         Route::get('/show/office/location', [OfficeLocationController::class, 'show'])->name('admin.show.office.location');
+         Route::get('/edit/office/location/{id}', [OfficeLocationController::class, 'edit'])->name('admin.edit.office.location');
+         Route::post('/update/office/location/{id}', [OfficeLocationController::class, 'update'])->name('admin.update.office.location');
     });
 
  });

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+
 use Livewire\WithFileUploads;
 use App\Models\Student;
 use App\Models\Course;
@@ -12,7 +13,7 @@ use App\Models\Upozilla;
 use App\Models\BranchName;
 use App\Models\Qualification;
 
-class AdmissionForm extends Component
+class Member extends Component
 {
     use WithFileUploads;
 
@@ -43,7 +44,6 @@ class AdmissionForm extends Component
     public $qualification = [];
     public $transectionId;
     public $courseName;
-    public $bikashNumber;
 
     public $totalStep = 4;
     public $currentStep = 1;
@@ -82,7 +82,7 @@ class AdmissionForm extends Component
         $permanentDivisions = Division::all();
         $qualifications = Qualification::all();
         $courses = Course::all();
-        return view('livewire.admission-form',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses'));
+        return view('livewire.member',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses'));
     }
 
     public function updatedPresentDivision($divId){
@@ -111,7 +111,7 @@ class AdmissionForm extends Component
 
         if($this->currentStep == 1){
 
-             $this->validate([
+            /*  $this->validate([
                 'firstName' => 'required|string',
                 'lastName' => 'required|string',
                 'fatherName' => 'required|string',
@@ -122,11 +122,11 @@ class AdmissionForm extends Component
                 'nid' => 'required|string',
                 'birthCertificate' => 'required|string',
                 'birthOfDate' => 'required',
-            ]);  
+            ]);  */
 
         }elseif($this->currentStep == 2){
 
-              $this->validate([
+          /*    $this->validate([
                 'presentDivision' => 'required',
                 'presentDistrict' => 'required',
                 'presentUpozilla' => 'required',
@@ -134,7 +134,7 @@ class AdmissionForm extends Component
                 'presentPostCode' => 'required',
                 'branchName' => 'required',
                 'courseName' => 'required'
-            ]);  
+            ]);  */
 
         }
     }
@@ -143,13 +143,12 @@ class AdmissionForm extends Component
 
         if($this->currentStep == 4){
 
-              $this->validate([
+           /*   $this->validate([
                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'signature' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'qualification' => 'required',
-                'transectionId' => 'required',
-                'bikashNumber' => 'required'
-            ]);  
+                'transectionId' => 'required'
+            ]);  */
             
          $image = $this->photo->store('photos');
          $signature = $this->signature->store('photos');
@@ -200,7 +199,6 @@ class AdmissionForm extends Component
             'qualification' =>json_encode($this->qualification),
             'registrationNum' => $registrationNum,
             'transectionId' => $this->transectionId,
-            'bikas_number' => $this->bikashNumber,
             'status' => 0
         ];
 

@@ -6,7 +6,15 @@
    <section class="marque my-3">
 
             <div class="alert alert-success">
-               <p class="alert-success font-weight-bold pb-1 m-0 pt-1 "><marquee  direction="left">Welcome to your Official website of Health Education and Development Foundation</marquee></p>
+               <p class="alert-success font-weight-bold pb-1 m-0 pt-1 ">
+                   <marquee  direction="forwards" scrolldelay="50" scrollamount="10">
+                            @isset($notices)
+                                @foreach ($notices as $notice)
+                                    {{$notice->notice}}
+                                @endforeach
+                            @endisset
+                    </marquee>
+                </p>
             </div>
 
    </section>
@@ -16,20 +24,48 @@
    
    <div class="row">
       <div class="col-md-12">
-         
-         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                @isset($slidePhotos)
+                    @php 
+                        $firstIndex = true ;
+                        $slideNum = 0;
+                    @endphp
+                    @foreach ($slidePhotos as $slidePhoto)
+                           
+                            <li data-target="#demo" data-slide-to="{{$slideNum}}" class=" {{$firstIndex == true ? 'active':''}}"></li>
+                            @php 
+                                    $firstIndex = false ;
+                                    $slideNum += 1; 
+                            @endphp
+
+                    @endforeach
+                @endisset
+             
+            </ul>
+            
+            <!-- The slideshow -->
             <div class="carousel-inner">
-              <div class="carousel-item active">
-               <img src="../img/carousel.png" class="d-block w-100" alt="carousel Image">
-              </div>
+                @isset($slidePhotos)
+                        @php $firstIndex = true ; @endphp
+                        @foreach ($slidePhotos as $slidePhoto)
+                            <div class="carousel-item {{$firstIndex == true ? 'active':''}}">
+                                <img  src="{{asset('img/slider/'.$slidePhoto->photo)}}" alt="hedf slide image">
+                            </div>
+                            @php $firstIndex = false ; @endphp
+                        @endforeach
+                @endisset
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
+            
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
             </a>
           </div>
       </div>
@@ -50,18 +86,19 @@
                     </p>
 
                     <div class="row text-center">
-                        <div class="col">
-                            <img class="rounded-circle border shadow-lg mb-4" src="https://www.bmdc.org.bd/cis/web/img/photo_president.png" alt width="140" height="140">
-                            <h4 class="web-header font-weight-bold">Prof. Mohammad Sahidullah</h4>
-                            <p class="font-weight-bold">President</p>
-                            <p>Health Education & Development Foundation </p>
-                        </div>
-                        <div class="col">
-                            <img class="rounded-circle border shadow-lg mb-4" src="https://www.bmdc.org.bd/cis/web/img/photo_registrer.png" alt width="140" height="140">
-                            <h4 class="web-header font-weight-bold">Dr. Md. Arman Hossain</h4>
-                            <p class="font-weight-bold">Registrar (Acting)</p>
-                            <p>Health Education & Development Foundation </p>
-                        </div>
+                        @isset($employees)
+
+                            @foreach ($employees as $employee)
+                                <div class="col-6">
+                                    <img class="rounded-circle border shadow-lg mb-4" src="{{asset('img/employee/'.$employee->photo)}}" alt width="140" height="140">
+                                    <h4 class="web-header font-weight-bold">{{$employee->name}}</h4>
+                                    <p class="font-weight-bold">{{$employee->post}}</p>
+                                    <p>Health Education & Development Foundation </p>
+                                </div>
+                            @endforeach
+                            
+                        @endisset
+                        
                     </div>
                 </div>
             </div>
@@ -71,83 +108,25 @@
                     <div class="news-scroll">
                         <div class="card news-card" >
                             <ul id="news-ticker">
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
+                                @isset($recentNews)
+                                    
+                                @foreach ($recentNews as $recentNew)
+                                    <li class="news-list ">
+                                        <div class="news-feed">
+                                            <div class="news-img">
+                                                <img  src="../img/icons8-news.svg" width="32" height="32">
+                                            </div>
+                                            <div class="news-details">
+                                                <p class="news-type text-muted">{{$recentNew->created_at}} - {{$recentNew->type}}</p>
+                                                <a class="news-link" href="#">{{$recentNew->title}}</a>
+                                            </div>
                                         </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Sheikh Ahsan Habib(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="news-list ">
-                                    <div class="news-feed">
-                                        <div class="news-img">
-                                            <img  src="../img/download.svg" width="32" height="32">
-                                        </div>
-                                        <div class="news-details">
-                                            <p class="news-type text-muted">23/04/2021- @notice</p>
-                                            <a class="news-link" href="#">Health Education & Development Foundation(HE&DF)</a>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
+
+                                @endisset
+                                
+                               
                             </ul>
                            
                         </div>
@@ -169,57 +148,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                <div class="card card-width  box-shadow border border bg-light">
-                    <div class="card-body">
-                     <img class="card-img-top" src="../img/book.png" alt="Card image cap" width="20" height="20">
-                      <h5 class="card-title mt-4 news-title ">HE&DF MBBS Curriculum Update- 2012</h5>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
-                        <div><a href="#">Read More</a></div>
-                    </div>
-                </div>
-            </div>
+            @isset($curriculums)
+                 
+                    @foreach ($curriculums as $curriculum)
+                            <div class="col-md-3">
+                                <div class="card card-width  box-shadow border border bg-light my-2">
+                                    <div class="card-body">
+                                    <img class="card-img-top" src="../img/StackOfBooks.svg" alt="Card image cap" width="20" height="20">
+                                    <h5 class="card-title mt-4 news-title ">{{$curriculum->title}}</h5>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
+                                        <div><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                    @endforeach
+            @endisset   
+           
 
-            <div class="col-md-3">
-                <div class="card  box-shadow border border bg-light" >
-                    <div class="card-body">
-                        <img class="card-img-top" src="../img/book.png" alt="Card image cap" width="20" height="20">
-                        <h5 class="card-title mt-4 news-title">BM&DC MBBS Curriculum Update- 2012</h5>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
-                        <div><a href="#">Read More</a></div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3">
-                <div class="card  box-shadow border border bg-light">
-                    <div class="card-body">
-                        <img class="card-img-top" src="../img/book.png" alt="Card image cap" width="20" height="20">
-                        <h5 class="card-title mt-4 news-title">BM&DC MBBS Curriculum Update- 2012</h5>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
-                        <div><a href="#">Read More</a></div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3">
-                <div class="card  box-shadow border border bg-light" >
-                    <div class="card-body">
-                        <img class="card-img-top" src="../img/book.png" alt="Card image cap" width="20" height="20">
-                        <h5 class="card-title mt-4 news-title">BM&DC MBBS Curriculum Update- 2012</h5>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
-                        <div><a href="#">Read More</a></div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </section>
 @endsection

@@ -13,8 +13,6 @@
         {{--step one --}}
 @if ($currentStep ==1)
     
-
-
         <div class="stepOne">
             <div class="card">
                 <div class="card-header bg-secondary text-white">STEP 1/4 - Personal Details</div>
@@ -195,6 +193,22 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="">Course Name</label>
+                            <select class="form-control" wire:model="courseName"  placeholder="enter your course name">
+                                <option>Select Course Name</option>
+                                @isset($courses)
+                                    @foreach ($courses as $course)
+                                        <option value="{{$course->id}}">{{$course->name}}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
+                            <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
+                        </div> 
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="">Branch Name</label>
                             <select class="form-control" wire:model="branchName"  placeholder="enter your branch name">
                                 <option>Select Branch Name</option>
@@ -207,7 +221,7 @@
                             <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
                         </div> 
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
 
@@ -350,16 +364,25 @@
                 </div> 
 
                 <div class="row mt-2">
-                    <div class="col-md-12">
-                        <h1 class="bikash-title text-center">Bikash Payment</h1>
-                    </div>
                     <div class="col-md-8 offset-md-2">
-                        <div class="form-group">
-                            <label for="bikas_transectionId">Bikash Transection ID</label>
-                            <input class="form-control" type="text" wire:model="transectionId" placeholder="enter bikash transection ID">
-                            <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
+                        <div class="payment-section">
+                            <h3 class="bikash-title text-center">Bikash Payment</h1>
+                            
+
+                            <div class="form-group">
+                                <label for="bikas_transectionId">Bikash Number</label>
+                                <input class="form-control" type="number" wire:model="bikashNumber" placeholder="enter your bikash number">
+                                <span class="text-danger">@error('bikashNumber'){{$message}} @enderror</span>
+                            </div>
+                          
+                                <div class="form-group">
+                                    <label for="bikas_transectionId">Bikash Transection ID</label>
+                                    <input class="form-control" type="text" wire:model="transectionId" placeholder="enter bikash transection ID">
+                                    <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
+                                </div>
                         </div>
                     </div>
+                    
                 </div>
 
             </div>

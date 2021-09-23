@@ -7,7 +7,6 @@
 body{
    
     background: #fff url(../img/bg_main.gif) no-repeat center center fixed;
-    color: #000;
     font-family: 'Droid Sans', sans-serif;
     font-size: 13.5px;
 }
@@ -37,10 +36,10 @@ body{
 
 
 .header .header_left_part .header_left_text h3 {
-    background-color: #ACF0F2;
+    background-color: #6e22ec;
     font-size: 20px;
     padding: 6px 0;
-    color: #000000;
+    color: #ffffff;
     font-weight: 800;
     margin-left: 65px;
     text-transform: capitalize;
@@ -50,7 +49,7 @@ body{
 
 
 .header .header_left_part .header_left_text p{
-    background-color:#f2ffe3;
+    background-color:#fff6b3;
     padding: 5px 10px 5px 92px;
     font-size: 13px;
     color: #0e0e0e !important;
@@ -123,21 +122,24 @@ body{
 
 /* Navigation bar style*/
 .bg-bmdc {
-    background-color: #99F793 !important;
+    background-color: #ce842a !important;
     box-shadow: 0 5px 10px #afafaf;
+    color: white !important;
 }
 
 .navigation .navbar-nav {
 
-    background-color: #99F793;
+    background-color: #ce842a !important;
 }
 .navigation .navbar .navbar-brand{
     font-size: 16px;
+    color: #fff !important;
   
 }
 
 .navigation .navbar-nav .nav-item{
-    border-right: 1px solid #dee2e6 ;
+  
+    color: #fff im !important;
    
 }
 
@@ -145,12 +147,9 @@ body{
     border-right: none ;
 }
 
-.navigation .navbar-nav li:nth-child(5) a.nav-link, .navigation .navbar-nav li:nth-child(6) a.nav-link{
-    color: red;
-}
 
 .navigation .navbar-nav .nav-item .nav-link{
-    color:#201d1dbf ;
+    color:#fff !important ;
     padding-top: 15px;
     font-size: 13px;
     font-weight: 600;
@@ -191,7 +190,8 @@ body{
     padding: 10px 10px;
 }
 .mega-menu  a:hover{
-    background-color: #99F793;
+    background-color: #ce842a !important;
+    color: #fff !important;
 }
 
 
@@ -216,6 +216,16 @@ body{
 
 .presentation-left-section{
     box-shadow: 0px 1px 2px grey;
+}
+
+.carousel{
+    text-align: center !important;
+}
+
+.carousel-inner img{
+
+    height: 380px;
+    width: 100%;
 }
 
 #curriculum{
@@ -330,6 +340,7 @@ body{
 
 .bikash-title{
     color: #e2136e;
+   
 }
 ::placeholder{
     color:rgb(182, 178, 178) !important;
@@ -337,9 +348,14 @@ body{
     font-style: italic;
 }
 
-select option{
+.payment-section{
 
+        padding: 20px;
+        box-shadow: 0px 0px 5px grey;
+        margin-top: 10px;
 }
+
+
  
    
 
@@ -374,6 +390,11 @@ select option{
 
 .footer .footer-second-col a:hover{
     text-decoration: underline;
+}
+
+.footer-third-col iframe{
+    width: 300px !important;
+    height: 200 !important;
 }
 
 
