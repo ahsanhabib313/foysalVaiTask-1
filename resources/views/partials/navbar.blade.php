@@ -47,53 +47,8 @@
                   <a class="nav-link " href="{{route('show.admission.form')}}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
                    Admission
                   </a>
-                  {{-- <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                    <div class="row">
-                        <div class="col-md-12">
-                         <a href="">RMP</a>
-                       
-                        
-                        </div>
-                    </div>
-                </div> --}}
                 </li>
-
-                <li class="nav-item ">
-                  <a class="nav-link" href="#" {{-- id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" --}}>
-                   Registration
-                  </a>
-                 {{--  <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                    <div class="row">
-                        <div class="col-md-3">
-                         <p><a href="#"></a></p>
-                         <p><a href="#">How it Works</a></p>
-                         <p><a href="#">Institution Organogram</a></p>
-                        
-                        </div>
-                       
-                        <div class="col-md-3">
-                          <p><a href="#">Introduction</a></p>
-                           <p><a href="#">List of Medical and Dental Journals</a></p>
-                           <p><a href="#">New list of Recognized Medical & Dental
-                              Colleges and Dental Units(Govt. & Non-Govt.)</a></p>
-                        </div>
-                        <div class="col-md-3">
-                          <p><a href="#">Old list of Recognized Medical & Dental
-                            Colleges</a></p>
-                            <p><a href="#">What is does</a></p>
-                            <p><a href="#">Amended schedule of Bangladesh Medical & Dental Councils</a></p>
-                        </div>
-                         
-                        <div class="col-md-3">
-                          <p><a href="#">Old list of Recognized Medical & Dental
-                            Colleges</a></p>
-                            <p><a href="#">What is does</a></p>
-                            <p><a href="#">Amended schedule of Bangladesh Medical & Dental Councils</a></p>
-                        </div>
-                    </div>
-                </div> --}}
-                </li>
-
+                
                 <li class="nav-item ">
                   <a class="nav-link" href="{{route('show.member.form')}}">Member</a>
                 </li>

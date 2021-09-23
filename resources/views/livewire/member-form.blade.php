@@ -1,7 +1,5 @@
 <div>
-   
     <div>
-   
         <form wire:submit.prevent="register">
     
             <div>
@@ -196,7 +194,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Course Name</label>
-                                <select class="form-control" wire:model="courseName"  placeholder="enter your course name">
+                                <select class="form-control" wire:model="courseName" >
                                     <option>Select Course Name</option>
                                     @isset($courses)
                                         @foreach ($courses as $course)
@@ -209,6 +207,21 @@
                         </div>
                     </div> 
                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Course Duration</label>
+                                <select class="form-control" wire:model="duration"  >
+                                    <option>Select Course Duration</option>
+                                    @isset($durations)
+                                        @foreach ($durations as $duration)
+                                            <option value="{{$duration->id}}">{{$duration->duration}}</option>
+                                        @endforeach
+                                    @endisset
+                                </select>
+                                <span class="text-danger">@error('duration'){{$message}} @enderror</span>
+                            </div> 
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Branch Name</label>
@@ -366,16 +379,25 @@
                     </div> 
     
                     <div class="row mt-2">
-                        <div class="col-md-12">
-                            <h1 class="bikash-title text-center">Bikash Payment</h1>
-                        </div>
                         <div class="col-md-8 offset-md-2">
-                            <div class="form-group">
-                                <label for="bikas_transectionId">Bikash Transection ID</label>
-                                <input class="form-control" type="text" wire:model="transectionId" placeholder="enter bikash transection ID">
-                                <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
+                            <div class="payment-section">
+                                <h3 class="bikash-title text-center">Bikash Payment</h1>
+                                
+    
+                                <div class="form-group">
+                                    <label for="bikas_transectionId">Bikash Number</label>
+                                    <input class="form-control" type="number" wire:model="bikashNumber" placeholder="enter your bikash number">
+                                    <span class="text-danger">@error('bikashNumber'){{$message}} @enderror</span>
+                                </div>
+                              
+                                    <div class="form-group">
+                                        <label for="bikas_transectionId">Bikash Transection ID</label>
+                                        <input class="form-control" type="text" wire:model="transectionId" placeholder="enter bikash transection ID">
+                                        <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
+                                    </div>
                             </div>
                         </div>
+                        
                     </div>
     
                 </div>

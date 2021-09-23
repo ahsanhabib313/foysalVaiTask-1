@@ -11,6 +11,8 @@ use App\Models\District;
 use App\Models\Upozilla;
 use App\Models\BranchName;
 use App\Models\Qualification;
+use App\Models\Address;
+use App\Models\OfficeLocation;
 
 class AdmissionForm extends Component
 {
@@ -82,6 +84,7 @@ class AdmissionForm extends Component
         $permanentDivisions = Division::all();
         $qualifications = Qualification::all();
         $courses = Course::all();
+       
         return view('livewire.admission-form',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses'));
     }
 
@@ -150,9 +153,17 @@ class AdmissionForm extends Component
                 'transectionId' => 'required',
                 'bikashNumber' => 'required'
             ]);  
+
+
             
-         $image = $this->photo->store('photos');
-         $signature = $this->signature->store('photos');
+
+          $this->photo->storeAs('public',$this->photo->getClientOriginalName());
+          $this->signature->storeAs('public',$this->signature->getClientOriginalName());
+
+          $photo = $this->photo->getClientOriginalName();
+          $signature = $this->signature->getClientOriginalName();
+        
+         
 
          $registrationNum = random_int(0, 99999999);
          $checkReg = Student::where('registrationNum', $registrationNum)->first();
@@ -195,7 +206,7 @@ class AdmissionForm extends Component
             'permanentUpozilla_id' => $this->permanentUpozilla,
             'permanentPostOffice' => $this->permanentPostOffice ,
             'permanentPostCode' => $this->permanentPostCode,
-            'photo' => $image,
+            'photo' => $photo,
             'signature' => $signature,
             'qualification' =>json_encode($this->qualification),
             'registrationNum' => $registrationNum,

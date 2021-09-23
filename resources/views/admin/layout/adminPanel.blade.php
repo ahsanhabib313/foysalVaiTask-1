@@ -60,14 +60,30 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#students"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-folder"></i>
-                        <span class="text-light display-6">Studnets</span>
+                        <span class="text-light display-6">Students</span>
                     </a>
                     <div id="students" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{route('admin.show.student')}}">Show Pending Students</a>
                         </div>
                     </div>
-                </li>          
+                </li>   
+                
+                   <!-- Divider -->
+                   <hr class="sidebar-divider"> 
+                   <!-- Nav Item - Pages Collapse Menu -->
+                   <li class="nav-item">
+                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#members"
+                         aria-expanded="true" aria-controls="collapsePages">
+                         <i class="fas fa-folder"></i>
+                         <span class="text-light display-6">Members</span>
+                     </a>
+                     <div id="members" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                         <div class="bg-white py-2 collapse-inner rounded">
+                             <a class="collapse-item" href="{{route('admin.show.member')}}">Show Pending Members</a>
+                         </div>
+                     </div>
+                 </li> 
                 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">

@@ -7,10 +7,9 @@
     <div class="col-md-10 offset-md-1">
       <h1 class="mt-5">Students Admission Form</h1><hr>
 
-              @livewire('admission-form')
+              @livewire('admission-form',['officeLocaiton' => $officeLocaiton, 'addresses' => $addresses])
       
-    </div>
-                  
+    </div>            
 </div>
 
 </section>  

@@ -61,8 +61,13 @@ class HomeController extends Controller
      */
     public function showAdmissionForm()
     {
+         //getting all address
+         $addresses = Address::all();
 
-        return view('admission');
+         //getting office location
+         $officeLocaiton = OfficeLocation::first(); 
+
+        return view('admission', compact('officeLocaiton','addresses'));
 
     }
 
@@ -73,7 +78,13 @@ class HomeController extends Controller
      */
     public function showMemberForm(){
        
-        return view('member'); 
+       //getting all address
+       $addresses = Address::all();
+
+       //getting office location
+       $officeLocaiton = OfficeLocation::first(); 
+
+      return view('member', compact('officeLocaiton','addresses'));
     }
 
    

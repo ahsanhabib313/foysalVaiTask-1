@@ -1,12 +1,12 @@
 @extends('admin.layout.adminPanel')
-@section('title', 'Show Student')
+@section('title', 'Show Member')
 @section('content')
 
-  <div id="showStudent"class="middle-content">
+  <div id="showMember"class="middle-content">
       <div class="container">
         <div class="row text-dark">
             <div class="col-md-12">
-                <h3 class="text-center my-3">All Pending Students</h3>
+                <h3 class="text-center my-3">All Pending Members</h3>
             </div>
             <div class="col-md-12">
                 @if (Session::has('success'))
@@ -29,20 +29,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @isset($students)
+                        @isset($members)
 
-                            @foreach ($students as $student)
+                            @foreach ($members as $member)
                                 <tr class="bg-light">
-                                    <td>{{$student->firstName.' '.$student->lastName}}</td>
-                                    <td>{{$student->email}}</td>
-                                    <td>{{$student->mobile}}</td>
-                                    <td>{{$student->branchName->name}}</td>
-                                    <td><img src="{{url('storage')}}/{{$student->photo}}" alt="" height="50" width="50"></td>
-                                    <td><img src="{{url('storage')}}/{{$student->signature}}" alt=""  height="50" width="50"></td>
-                                    <td>{{$student->registrationNum}}</td>
-                                    <td>{{$student->transectionId}}</td>
+                                    <td>{{$member->firstName.' '.$member->lastName}}</td>
+                                    <td>{{$member->email}}</td>
+                                    <td>{{$member->mobile}}</td>
+                                    <td>{{$member->branchName->name}}</td>
+                                    <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
+                                    <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
+                                    <td>{{$member->registrationNum}}</td>
+                                    <td>{{$member->transectionId}}</td>
                                     <td>
-                                        <a href="{{route('admin.active.student',$student->id)}}" class="btn btn-success" href="#">Active</a>
+                                        <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success" href="#">Active</a>
                                     </td>
                                 </tr>
                             @endforeach

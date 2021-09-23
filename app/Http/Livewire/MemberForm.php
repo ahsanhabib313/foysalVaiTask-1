@@ -5,15 +5,16 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use Livewire\WithFileUploads;
-use App\Models\Student;
+use App\Models\Member;
 use App\Models\Course;
 use App\Models\Division;
 use App\Models\District;
 use App\Models\Upozilla;
 use App\Models\BranchName;
 use App\Models\Qualification;
+use App\Models\Duration;
 
-class Member extends Component
+class MemberForm extends Component
 {
     use WithFileUploads;
 
@@ -44,6 +45,8 @@ class Member extends Component
     public $qualification = [];
     public $transectionId;
     public $courseName;
+    public $duration;
+    public $bikashNumber;
 
     public $totalStep = 4;
     public $currentStep = 1;
@@ -82,7 +85,9 @@ class Member extends Component
         $permanentDivisions = Division::all();
         $qualifications = Qualification::all();
         $courses = Course::all();
-        return view('livewire.member',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses'));
+        $durations = Duration::all();
+
+        return view('livewire.member-form',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses','durations'));
     }
 
     public function updatedPresentDivision($divId){
@@ -111,7 +116,7 @@ class Member extends Component
 
         if($this->currentStep == 1){
 
-            /*  $this->validate([
+             $this->validate([
                 'firstName' => 'required|string',
                 'lastName' => 'required|string',
                 'fatherName' => 'required|string',
@@ -122,19 +127,20 @@ class Member extends Component
                 'nid' => 'required|string',
                 'birthCertificate' => 'required|string',
                 'birthOfDate' => 'required',
-            ]);  */
+            ]);  
 
         }elseif($this->currentStep == 2){
 
-          /*    $this->validate([
+             $this->validate([
                 'presentDivision' => 'required',
                 'presentDistrict' => 'required',
                 'presentUpozilla' => 'required',
                 'presentPostOffice' => 'required',
                 'presentPostCode' => 'required',
                 'branchName' => 'required',
-                'courseName' => 'required'
-            ]);  */
+                'courseName' => 'required',
+                'duration' =>'required'
+            ]);  
 
         }
     }
@@ -143,22 +149,26 @@ class Member extends Component
 
         if($this->currentStep == 4){
 
-           /*   $this->validate([
+             $this->validate([
                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'signature' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'qualification' => 'required',
-                'transectionId' => 'required'
-            ]);  */
+                'transectionId' => 'required',
+                'bikashNumber' => 'required'
+            ]);  
             
-         $image = $this->photo->store('photos');
-         $signature = $this->signature->store('photos');
+            $this->photo->storeAs('public',$this->photo->getClientOriginalName());
+            $this->signature->storeAs('public',$this->signature->getClientOriginalName());
+  
+            $image = $this->photo->getClientOriginalName();
+            $signature = $this->signature->getClientOriginalName();
 
-         $registrationNum = random_int(0, 99999999);
-         $checkReg = Student::where('registrationNum', $registrationNum)->first();
-         while($checkReg){
             $registrationNum = random_int(0, 99999999);
-            $checkReg = Student::where('registrationNum', $registrationNum)->first();
-         }
+            $checkReg = Member::where('registrationNum', $registrationNum)->first();
+            while($checkReg){
+                $registrationNum = random_int(0, 99999999);
+                $checkReg = Member::where('registrationNum', $registrationNum)->first();
+            }
 
          if(!empty($this->checkAddress)){
                
@@ -188,6 +198,7 @@ class Member extends Component
             'presentPostCode' => $this->presentPostCode,
             'branch_name_id' => $this->branchName,
             'course_id' => $this->courseName,
+            'duration_id' => $this->duration,
             'checkAddress' => $this->checkAddress,
             'permanentDivision_id' => $this->permanentDivision,
             'permanentDistrict_id' => $this->permanentDistrict,
@@ -199,11 +210,12 @@ class Member extends Component
             'qualification' =>json_encode($this->qualification),
             'registrationNum' => $registrationNum,
             'transectionId' => $this->transectionId,
+            'bikas_number' => $this->bikashNumber,
             'status' => 0
         ];
 
-        Student::insert($data);
-        session()->flash('message', 'Your credentials that have provided have been saved and Now your Registaration request is pending, after checking your Transection ID,
+        Member::create($data);
+        session()->flash('message', 'Your Registaration request is pending, after checking your Transection ID,
         your Registration will be confirmed and will be given a Registration ID via SMS, Thank You');
         $this->reset();
         $this->currentStep = 1;  
@@ -212,3 +224,4 @@ class Member extends Component
 
     }
 }
+

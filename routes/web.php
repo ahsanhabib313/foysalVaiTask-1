@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeeController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\OfficeLocationController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,14 @@ Route::prefix('admin')->group(function(){
          /**********students route*********/
          Route::get('/show/student', [StudentController::class, 'showStudent'])->name('admin.show.student');
          Route::get('/student/active/{id}', [StudentController::class, 'activeStudent'])->name('admin.active.student');
+
+
+
+       /**********student route*********/
+       Route::get('/show/member', [MemberController::class, 'show'])->name('admin.show.member');
+       Route::get('/member/active/{id}', [MemberController::class, 'active'])->name('admin.active.member');
+  
+     
     
        
          /**********recent news route*********/
