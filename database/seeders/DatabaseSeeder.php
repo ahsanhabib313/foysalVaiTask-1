@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             DivisionSeeder::class,
             DistrictSeeder::class,
             UpozillaSeeder::class,
-            QualificationSeeder::class 
+            QualificationSeeder::class,
+            DurationSeeder::class,
+            SuperAdminSeeder::class
             
         
         ]);

@@ -33,7 +33,11 @@
           <div class="footer-third-col">
               <h6>Receiving Hours</h6>
               <p class ="d-block mb-3 text-muted">Sunday - Thursday, 9.00 AM to 6.00 PM</p>
+
+              @isset($officeLocation)
               <p><iframe src="{{$officeLocaiton->office_location}}"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+              @endisset
+             
           </div>
         </div>
         <div class="col-lg-3">
