@@ -16,12 +16,14 @@
             @endif
             </div>
             <div class="col-md-12">
-                <table class="table table-striped  text-dark text-center">
+                <table class="table table-responsive-xl  table-striped  text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Title</th>
                             <th> File</th>
+                            @if (Auth::user()->role == 1)
                             <th>Action </th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -31,11 +33,13 @@
                             <tr class="bg-light">
                                 <td>{{$curriculum->title}}</td>
                                 <td>{{$curriculum->file}}</td>
+                                @if (Auth::user()->role == 1)
                                 <td>
                                     <a class="btn btn-success" href="{{route('admin.edit.curriculum', $curriculum->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('admin.delete.curriculum', $curriculum->id)}}">Delete</a>
                                 
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         @endisset

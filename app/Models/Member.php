@@ -35,7 +35,13 @@ class Member extends Model
         return $this->belongsTo(Upozilla::class, 'permanentUpozilla_id');
     }
 
-    public function branchName(){
+    public function branch(){
         return $this->belongsTo(BranchName::class, 'branch_name_id');
+    }
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
+    public function duration(){
+        return $this->belongsTo(Duration::class);
     }
 }

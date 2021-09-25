@@ -137,10 +137,9 @@ body{
   
 }
 
-.navigation .navbar-nav .nav-item{
+.navigation .navbar-nav .nav-item {
   
-    color: #fff im !important;
-   
+    margin-left: 20px;
 }
 
 .navigation .navbar-nav li:first-child, .navigation .navbar-nav li:last-child{
@@ -195,9 +194,9 @@ body{
 }
 
 
-.dropdown:hover>.dropdown-menu{
+/* .dropdown:hover>.dropdown-menu{
     display: block;
-}
+} */
 
 
 /******Home Page Content Section********/
@@ -356,7 +355,18 @@ body{
 }
 
 
- 
+#searchMember{
+    min-height: 500px;
+    padding: 50px 0;
+}
+#searchMember h5{
+   
+}
+#searchMember .search-form{
+    padding: 20px;
+    box-shadow: 0px 0px 5px 0px #ecbfe5;
+    
+}
    
 
 

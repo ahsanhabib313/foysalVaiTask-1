@@ -139,6 +139,16 @@ class AdmissionForm extends Component
                 'courseName' => 'required'
             ]);  
 
+        }elseif($this->currentStep == 3 && empty($this->checkAddress)){
+            
+            $this->validate([
+                'permanentDivision' => 'required',
+                'permanentDistrict' => 'required',
+                'permanentUpozilla' => 'required',
+                'permanentPostOffice' => 'required',
+                'permanentPostCode' => 'required',
+               
+            ]);  
         }
     }
 

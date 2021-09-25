@@ -24,7 +24,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Telephone</label>
-                                <input type="tel" name="telephone" class="form-control" placeholder="Enter telephone" value="{{$address->telephone}}">
+                                <input type="text" name="telephone" class="form-control" placeholder="Enter telephone" value="{{$address->telephone}}">
                                 @if ($errors->has('telephone'))
                                     <p class="text-danger"> {{$errors->first('telephone')}}</p>
                                  @endif
@@ -32,7 +32,7 @@
                         
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Fax</label>
-                                <input type="tel" name="fax" class="form-control" placeholder="Enter fax" value="{{$address->fax}}">
+                                <input type="text" name="fax" class="form-control" placeholder="Enter fax" value="{{$address->fax}}">
                                 @if ($errors->has('fax'))
                                     <p class="text-danger"> {{$errors->first('fax')}}</p>
                                  @endif
@@ -40,7 +40,7 @@
                         
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter email" value="{{$address->email}}">
+                                <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$address->email}}">
                                 @if ($errors->has('email'))
                                     <p class="text-danger"> {{$errors->first('email')}}</p>
                                 @endif

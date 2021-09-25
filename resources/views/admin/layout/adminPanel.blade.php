@@ -35,7 +35,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">Super Admin</div>
+                    <div class="sidebar-brand-text mx-3">{{Auth::user()->role == 1? 'Super Admin' :'Admin' }}</div>
                 </a>
     
                 <!-- Divider -->
@@ -94,7 +94,9 @@
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.add.employee')}}">Add Employee</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.employee')}}">Show Employees</a>
                         </div>
                     </div>
@@ -109,7 +111,9 @@
                     </a>
                     <div id="slidePhotoPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.add.slide.photo')}}">Add Slide Photo</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.slide.photo')}}">Show Slide Photo</a>
                         </div>
                     </div>
@@ -123,7 +127,9 @@
                     </a>
                     <div id="recentNews" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.create.recent.news')}}">Add Recent News</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.recent.news')}}">Show Recent news</a>
                         </div>
                     </div>
@@ -137,7 +143,9 @@
                     </a>
                     <div id="curriculums" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.add.curriculum.show')}}">Add Curriculum</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.curriculum')}}">Show Curriculum</a>
                         </div>
                     </div>
@@ -151,7 +159,9 @@
                     </a>
                     <div id="address" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.add.address.show')}}">Add Address</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.address')}}">Show Address</a>
                         </div>
                     </div>
@@ -165,7 +175,9 @@
                     </a>
                     <div id="notice" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.add.notice.show')}}">Add Notice</a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.notice')}}">Show Notice</a>
                         </div>
                     </div>
@@ -179,7 +191,9 @@
                     </a>
                     <div id="course" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.create.course')}}">Add Course</a>
+                            @endif 
                             <a class="collapse-item" href="{{route('admin.show.course')}}">Show Course</a>
                         </div>
                     </div>
@@ -193,7 +207,9 @@
                     </a>
                     <div id="officeLocation" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
                             <a class="collapse-item" href="{{route('admin.create.office.location')}}">Add </a>
+                            @endif
                             <a class="collapse-item" href="{{route('admin.show.office.location')}}">Show </a>
                         </div>
                     </div>
@@ -380,9 +396,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-light-600 small">{{Auth::user()->username}}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{asset('css/admin/img/undraw_profile.svg')}}">
+                                    src="{{asset('img/avatar.png')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -400,7 +416,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{route('logout')}}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -412,24 +428,8 @@
                 </nav>
                 <!-- End of Topbar -->
 
-
-
-    
              @yield('content')
 
-
-
-
-
-             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
 
@@ -440,30 +440,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-
-
 
         </div>
 

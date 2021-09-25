@@ -19,7 +19,9 @@
                     <thead class="thead-dark">
                         <tr>
                             <th> Location</th>
+                            @if (Auth::user()->role == 1)
                             <th>Action </th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -27,10 +29,12 @@
                                 @foreach ($officeLocations as $officeLocation)
                                     <tr class="bg-light">
                                         <td style="overflow-x: auto">{{$officeLocation->office_location}}</td>
+                                        @if (Auth::user()->role == 1)
                                         <td> 
                                             <a class="btn btn-success" href="{{route('admin.edit.office.location', $officeLocation->id)}}">Edit</a>
                                            {{--  <a class="btn btn-danger" href="{{route('admin.delete.office.location', $officeLocation->id)}}">Delete</a> --}}
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             @endisset

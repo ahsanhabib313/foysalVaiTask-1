@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use App\Models\CurriCulum;
@@ -140,4 +141,6 @@ class CurriculumController extends Controller
             return back()->with('success', 'Curriculum has been deleted Successfully');
         }
     }
+
+    
 }

@@ -33,6 +33,9 @@ class MemberForm extends Component
     public $presentUpozilla;
     public $presentPostOffice;
     public $presentPostCode;
+    public $courseName;
+    public $duration;
+    public $registrationNum;
     public $branchName;
     public $checkAddress;
     public $permanentDivision;
@@ -44,8 +47,7 @@ class MemberForm extends Component
     public $signature;
     public $qualification = [];
     public $transectionId;
-    public $courseName;
-    public $duration;
+    
     public $bikashNumber;
 
     public $totalStep = 4;
@@ -116,7 +118,7 @@ class MemberForm extends Component
 
         if($this->currentStep == 1){
 
-             $this->validate([
+                $this->validate([
                 'firstName' => 'required|string',
                 'lastName' => 'required|string',
                 'fatherName' => 'required|string',
@@ -127,11 +129,11 @@ class MemberForm extends Component
                 'nid' => 'required|string',
                 'birthCertificate' => 'required|string',
                 'birthOfDate' => 'required',
-            ]);  
+            ]);   
 
         }elseif($this->currentStep == 2){
 
-             $this->validate([
+                $this->validate([
                 'presentDivision' => 'required',
                 'presentDistrict' => 'required',
                 'presentUpozilla' => 'required',
@@ -139,9 +141,20 @@ class MemberForm extends Component
                 'presentPostCode' => 'required',
                 'branchName' => 'required',
                 'courseName' => 'required',
-                'duration' =>'required'
+                'duration' =>'required',
+                'registrationNum' => 'required'
             ]);  
 
+        }elseif($this->currentStep == 3 && empty($this->checkAddress)){
+            
+            $this->validate([
+                'permanentDivision' => 'required',
+                'permanentDistrict' => 'required',
+                'permanentUpozilla' => 'required',
+                'permanentPostOffice' => 'required',
+                'permanentPostCode' => 'required',
+               
+            ]);  
         }
     }
 
@@ -163,12 +176,7 @@ class MemberForm extends Component
             $image = $this->photo->getClientOriginalName();
             $signature = $this->signature->getClientOriginalName();
 
-            $registrationNum = random_int(0, 99999999);
-            $checkReg = Member::where('registrationNum', $registrationNum)->first();
-            while($checkReg){
-                $registrationNum = random_int(0, 99999999);
-                $checkReg = Member::where('registrationNum', $registrationNum)->first();
-            }
+           
 
          if(!empty($this->checkAddress)){
                
@@ -199,6 +207,7 @@ class MemberForm extends Component
             'branch_name_id' => $this->branchName,
             'course_id' => $this->courseName,
             'duration_id' => $this->duration,
+            'registrationNum' => $this->registrationNum,
             'checkAddress' => $this->checkAddress,
             'permanentDivision_id' => $this->permanentDivision,
             'permanentDistrict_id' => $this->permanentDistrict,
@@ -208,7 +217,6 @@ class MemberForm extends Component
             'photo' => $image,
             'signature' => $signature,
             'qualification' =>json_encode($this->qualification),
-            'registrationNum' => $registrationNum,
             'transectionId' => $this->transectionId,
             'bikas_number' => $this->bikashNumber,
             'status' => 0

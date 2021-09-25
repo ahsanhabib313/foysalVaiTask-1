@@ -14,7 +14,7 @@
                             {{Session::get('success')}}
                     </div> 
                 @endif
-                <table class="table table-responsive table-striped text-dark text-center">
+                <table class="table table-responsive-xl table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
@@ -25,7 +25,9 @@
                             <th>Signature</th>
                             <th>Registration No.</th>
                             <th>Transection ID</th>
-                            <th>Action </th>
+                            @if (Auth::user()->role == 1)
+                                <th>Action </th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -41,9 +43,12 @@
                                     <td><img src="{{url('storage')}}/{{$student->signature}}" alt=""  height="50" width="50"></td>
                                     <td>{{$student->registrationNum}}</td>
                                     <td>{{$student->transectionId}}</td>
-                                    <td>
-                                        <a href="{{route('admin.active.student',$student->id)}}" class="btn btn-success" href="#">Active</a>
-                                    </td>
+                                    @if (Auth::user()->role == 1)
+                                        <td>
+                                            <a href="{{route('admin.active.student',$student->id)}}" class="btn btn-success" href="#">Active</a>
+                                        </td>
+                                    @endif
+                                    
                                 </tr>
                             @endforeach
                             

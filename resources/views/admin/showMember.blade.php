@@ -14,7 +14,7 @@
                             {{Session::get('success')}}
                     </div> 
                 @endif
-                <table class="table table-responsive table-striped text-dark text-center">
+                <table class="table table-responsive-xl table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
@@ -25,7 +25,9 @@
                             <th>Signature</th>
                             <th>Registration No.</th>
                             <th>Transection ID</th>
-                            <th>Action </th>
+                            @if (Auth::user()->role == 1)
+                                <th>Action </th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -36,14 +38,16 @@
                                     <td>{{$member->firstName.' '.$member->lastName}}</td>
                                     <td>{{$member->email}}</td>
                                     <td>{{$member->mobile}}</td>
-                                    <td>{{$member->branchName->name}}</td>
+                                    <td>{{$member->branch->name}}</td>
                                     <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
                                     <td>{{$member->registrationNum}}</td>
                                     <td>{{$member->transectionId}}</td>
-                                    <td>
-                                        <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success" href="#">Active</a>
-                                    </td>
+                                    @if (Auth::user()->role == 1)
+                                        <td>
+                                                <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success" href="#">Active</a>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             

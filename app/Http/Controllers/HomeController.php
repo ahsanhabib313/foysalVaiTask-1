@@ -37,7 +37,7 @@ class HomeController extends Controller
         $recentNews = RecentNews::all();
 
         //getting all address
-        $addresses = Address::all();
+        $address = Address::first();
 
         //getting all slide photos
         $slidePhotos = SliderPhoto::all(); 
@@ -45,7 +45,7 @@ class HomeController extends Controller
         //getting office location
         $officeLocaiton = OfficeLocation::first(); 
        
-        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'addresses', 'officeLocaiton'));
+        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'address', 'officeLocaiton'));
     }
 
     /** Register ******/
@@ -62,12 +62,12 @@ class HomeController extends Controller
     public function showAdmissionForm()
     {
          //getting all address
-         $addresses = Address::all();
+         $address = Address::first();
 
          //getting office location
          $officeLocaiton = OfficeLocation::first(); 
 
-        return view('admission', compact('officeLocaiton','addresses'));
+        return view('admission', compact('officeLocaiton','address'));
 
     }
 
@@ -79,12 +79,12 @@ class HomeController extends Controller
     public function showMemberForm(){
        
        //getting all address
-       $addresses = Address::all();
+       $address = Address::first();
 
        //getting office location
        $officeLocaiton = OfficeLocation::first(); 
 
-      return view('member', compact('officeLocaiton','addresses'));
+      return view('member', compact('officeLocaiton','address'));
     }
 
    
@@ -94,9 +94,15 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function contact()
     {
-        //
+         //getting all address
+         $address = Address::first();
+ 
+         //getting office location
+         $officeLocaiton = OfficeLocation::first(); 
+
+         return view('contact', compact('address', 'officeLocaiton'));
     }
 
     /**

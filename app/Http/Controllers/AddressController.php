@@ -41,7 +41,7 @@ class AddressController extends Controller
             'address' => 'required',
             'telephone' => 'required',
             'fax' => 'required',
-            'email' => 'required|email',
+            'email' => 'required',
             
         ]);
 
@@ -104,7 +104,7 @@ class AddressController extends Controller
             'address' => 'required',
             'telephone' => 'required',
             'fax' => 'required',
-            'email' => 'required|email',
+            'email' => 'required',
             
         ]);
 

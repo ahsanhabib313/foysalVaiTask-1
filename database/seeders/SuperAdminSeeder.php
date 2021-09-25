@@ -19,10 +19,10 @@ class SuperAdminSeeder extends Seeder
         DB::table('users')->delete();
         DB::table('users')
            ->insert([
-                'username' => 'admin',
+                'username' => 'super admin',
                 'email' => 'superadmin@gamil.com',
-                'role' => 'superadmin',
-                'password' => Hash::make(123456)
+                'role' => 1,
+                'password' => Hash::make(12345)
            ]);
         
     }

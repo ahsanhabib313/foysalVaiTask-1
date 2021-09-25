@@ -4,23 +4,25 @@
   <div id="show-slide-photo" class="middle-content">
       <div class="container">
         <div class="row text-dark">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <h3 class="text-center my-3">All Slide Photos</h3>
             </div>
-            <div class="col-md-6 offset-md-3">
+            <div class="col-lg-6 offset-lg-3">
                 @if (Session::has('success'))
                     <div class="alert alert-success">
                         {{Session::get('success')}}
                     </div>
                 @endif
             </div>
-            <div class="col-md-12">
-                <table class="table table-striped text-dark text-center">
+            <div class="col-lg-12">
+                <table class="table table-responsive-xl  table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Title</th>
                             <th> Photo</th>
+                            @if (Auth::user()->role == 1)
                             <th>Action </th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -29,9 +31,11 @@
                                     <tr class="bg-light">
                                         <td>{{$sliderPhoto->title}}</td>
                                         <td><img src="{{asset('img/slider/'.$sliderPhoto->photo)}}" alt="" height="50" width="50"></td>
+                                        @if (Auth::user()->role == 1)
                                         <td> 
                                             <a class="btn btn-danger" href="{{route('admin.destroy.slide.photo',$sliderPhoto->id)}}">Delete</a>
                                         </td>
+                                        @endif
                                     </tr>
                             @endforeach
                         @endisset

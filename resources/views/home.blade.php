@@ -23,7 +23,7 @@
 <section class="carousel"> 
    
    <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-12">
 
         <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -74,7 +74,7 @@
 
     <section id="presentation " class="border-bottom">
         <div class="row">
-            <div class="col-md-8 " >
+            <div class="col-lg-8 " >
                 <div class="my-3 p-3 bg-white rounded shadow-sm presentation-left-section">
                     <h1 class="pb-2 font-weight-bold border-bottom border-gray">Welcome to HE&DF </h1>
                     <p class="text-justify">
@@ -86,11 +86,12 @@
                     </p>
 
                     <div class="row text-center">
-                        @isset($employees)
+                       
+                            @isset($employees)
 
                             @foreach ($employees as $employee)
                                 <div class="col-6">
-                                    <img class="rounded-circle border shadow-lg mb-4" src="{{asset('img/employee/'.$employee->photo)}}" alt width="140" height="140">
+                                    <img class="rounded-circle border shadow-lg mb-4 img-fluid" src="{{asset('img/employee/'.$employee->photo)}}" alt width="140" height="140">
                                     <h4 class="web-header font-weight-bold">{{$employee->name}}</h4>
                                     <p class="font-weight-bold">{{$employee->post}}</p>
                                     <p>Health Education & Development Foundation </p>
@@ -98,11 +99,13 @@
                             @endforeach
                             
                         @endisset
+                      
+                       
                         
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <div class="my-3 p-3 news-section " id="news-section">
                     <h5 class="recent-news border-bottom border-gray pb-2 mb-0 text-muted font-weight-bold">Recent News/Updates</h5>
                     <div class="news-scroll">
@@ -118,7 +121,7 @@
                                             </div>
                                             <div class="news-details">
                                                 <p class="news-type text-muted">{{$recentNew->created_at}} - {{$recentNew->type}}</p>
-                                                <a class="news-link" href="#">{{$recentNew->title}}</a>
+                                                <a class="news-link" href="{{route('download.recentNews',$recentNew->file )}}">{{$recentNew->title}}</a>
                                             </div>
                                         </div>
                                     </li>
@@ -151,14 +154,14 @@
             @isset($curriculums)
                  
                     @foreach ($curriculums as $curriculum)
-                            <div class="col-md-3">
+                            <div class="col-lg-3">
                                 <div class="card card-width  box-shadow border border bg-light my-2">
                                     <div class="card-body">
                                     <img class="card-img-top" src="../img/StackOfBooks.svg" alt="Card image cap" width="20" height="20">
                                     <h5 class="card-title mt-4 news-title ">{{$curriculum->title}}</h5>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between">
-                                        <div><a href="#"><i class="fas fa-download"></i></a> </div>
+                                        <div><a href="{{route('download.curriculum',$curriculum->file )}}"><i class="fas fa-download"></i></a> </div>
                                         <div><a href="#">Read More</a></div>
                                     </div>
                                 </div>

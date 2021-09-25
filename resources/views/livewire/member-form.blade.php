@@ -224,6 +224,16 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="">Course Registration No.</label>
+                                <input type="number" class="form-control" wire:model="registrationNum"  placeholder="enter your course registration no..">
+                                <span class="text-danger">@error('registrationNum'){{$message}} @enderror</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="">Branch Name</label>
                                 <select class="form-control" wire:model="branchName"  placeholder="enter your branch name">
                                     <option>Select Branch Name</option>
@@ -257,14 +267,14 @@
                             <div class="form-check form-check-inline">  
                                 <input class="form-check-input" type="checkbox" wire:model="checkAddress" >
                                 <label class="form-check-label" for="checkAddress">
-                                  Same as Present Address
+                                  Same as Present Address <span class="text-danger">(don't need to fill up the below input field)</span>
                                 </label>
                             </div>
     
                             <span class="text-danger">@error('checkAddress'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Division</label>

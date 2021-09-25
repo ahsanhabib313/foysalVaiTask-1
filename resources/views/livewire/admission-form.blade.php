@@ -242,14 +242,14 @@
                         <div class="form-check form-check-inline">  
                             <input class="form-check-input" type="checkbox" wire:model="checkAddress" >
                             <label class="form-check-label" for="checkAddress">
-                              Same as Present Address
+                              Same as Present Address <span class="text-danger">(don't need to fill up the below input field)</span>
                             </label>
                         </div>
 
                         <span class="text-danger">@error('checkAddress'){{$message}} @enderror</span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Division</label>

@@ -4,10 +4,10 @@
 <section id="memberForm">
 
   <div class="row">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-lg-10 offset-lg-1">
       <h1 class="mt-5">Members Form</h1><hr>
 
-              @livewire('member-form',['officeLocaiton' => $officeLocaiton, 'addresses' => $addresses])
+              @livewire('member-form',['officeLocaiton' => $officeLocaiton, 'address' => $address])
       
     </div>
                   
