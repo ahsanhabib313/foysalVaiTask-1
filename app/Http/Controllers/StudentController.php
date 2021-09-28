@@ -11,8 +11,20 @@ class StudentController extends Controller
        // show the students that are Pending
 
        public function showStudent(Request $request){
+
         $students = Student::where('status', 0)->get();
+
         return view('admin.showStudent', compact('students'));
+    }
+
+
+       // show the students those are active
+
+       public function showActiveStudent(Request $request){
+
+        $students = Student::where('status', 1)->get();
+
+        return view('admin.showActiveStudent', compact('students'));
     }
 
     // active the pending students
@@ -25,8 +37,9 @@ class StudentController extends Controller
                            ]);
 
        $student = Student::where('id', $id)->first();
+
         if($updated){
-            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$student->registrationNum.'.');
+            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$student->registrationNum.' and Personal Number: '.$student->mobile);
         }
     }
     /**

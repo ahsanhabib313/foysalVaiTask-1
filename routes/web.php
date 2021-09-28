@@ -69,7 +69,9 @@ Route::middleware(['guest'])->group(function () {
       Route::get('/show/employee', [EmployeeController::class, 'show'])->name('admin.show.employee');
       Route::get('/show/slide/photo', [SlidePhotoController::class, 'show'])->name('admin.show.slide.photo');
       Route::get('/show/student', [StudentController::class, 'showStudent'])->name('admin.show.student');
+      Route::get('/show/active/student', [StudentController::class, 'showActiveStudent'])->name('admin.show.active.student');
       Route::get('/show/member', [MemberController::class, 'show'])->name('admin.show.member');
+      Route::get('/show/active/member', [MemberController::class, 'showActiveMember'])->name('admin.show.active.member');
       Route::get('/show/recent/news', [RecentNewsController::class, 'show'])->name('admin.show.recent.news');
       Route::get('/show/curriculum', [CurriculumController::class, 'show'])->name('admin.show.curriculum');
       Route::get('show/address/', [AddressController::class, 'show'])->name('admin.show.address');

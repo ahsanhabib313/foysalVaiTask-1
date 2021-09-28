@@ -65,12 +65,13 @@
                     <div id="students" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{route('admin.show.student')}}">Show Pending Students</a>
+                            <a class="collapse-item" href="{{route('admin.show.active.student')}}">Show Active Students</a>
                         </div>
                     </div>
+                      
                 </li>   
                 
-                   <!-- Divider -->
-                   <hr class="sidebar-divider"> 
+              
                    <!-- Nav Item - Pages Collapse Menu -->
                    <li class="nav-item">
                      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#members"
@@ -81,6 +82,7 @@
                      <div id="members" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                          <div class="bg-white py-2 collapse-inner rounded">
                              <a class="collapse-item" href="{{route('admin.show.member')}}">Show Pending Members</a>
+                             <a class="collapse-item" href="{{route('admin.show.active.member')}}">Show Active Members</a>
                          </div>
                      </div>
                  </li> 

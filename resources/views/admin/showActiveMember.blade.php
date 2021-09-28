@@ -1,12 +1,12 @@
 @extends('admin.layout.adminPanel')
-@section('title', 'Show Member')
+@section('title', 'Show Active Member')
 @section('content')
 
-  <div id="showMember"class="middle-content">
+  <div id="showActiveMember"class="middle-content">
       <div class="container">
         <div class="row text-dark">
             <div class="col-md-12">
-                <h3 class="text-center my-3">All Pending Members</h3>
+                <h3 class="text-center my-3">All Active Members</h3>
             </div>
             <div class="col-md-12">
                 @if (Session::has('success'))
@@ -19,15 +19,12 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Mobile No.</th>
                             <th>Branch</th>
                             <th>Photo</th>
                             <th>Signature</th>
                             <th>Registration No.</th>
-                            <th>Bikash Number</th>
-                            <th>Transection ID</th>
-                            @if (Auth::user()->role == 1)
-                                <th>Action </th>
-                            @endif
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -37,17 +34,13 @@
                                 <tr class="bg-light">
                                     <td>{{$member->firstName.' '.$member->lastName}}</td>
                                     <td>{{$member->email}}</td>
+                                    <td>{{$member->mobile}}</td>
                                     <td>{{$member->branch->name}}</td>
                                     <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
                                     <td>{{$member->registrationNum}}</td>
-                                    <td>{{$member->bikas_number}}</td>
-                                    <td>{{$member->transectionId}}</td>
-                                    @if (Auth::user()->role == 1)
-                                        <td>
-                                                <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success" href="#">Active</a>
-                                        </td>
-                                    @endif
+                                   
+                                  
                                 </tr>
                             @endforeach
                             

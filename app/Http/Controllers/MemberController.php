@@ -11,8 +11,6 @@ class MemberController extends Controller
 {
 
 
-  
-
     // active the pending members
 
     public function active($id){
@@ -24,7 +22,7 @@ class MemberController extends Controller
 
        $member = Member::where('id', $id)->first();
         if($updated){
-            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$member->registrationNum.'.');
+            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$member->registrationNum.' and personal Number is:'.$member->mobile);
         }
     }
     /**
@@ -99,6 +97,21 @@ class MemberController extends Controller
         $members = Member::where('status', 0)->get();
 
         return view('admin.showMember', compact('members'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+      // show the members those are pending
+
+      public function showActiveMember(Request $request){
+
+        $members = Member::where('status', 1)->get();
+
+        return view('admin.showActiveMember', compact('members'));
     }
 
     /**
