@@ -22,7 +22,7 @@ class MemberController extends Controller
 
        $member = Member::where('id', $id)->first();
         if($updated){
-            return back()->with('success', 'Student Registration Activated succesfully with Registration number '.$member->registrationNum.' and personal Number is:'.$member->mobile);
+            return back()->with('success', 'Member Registration Activated succesfully with Registration number '.$member->registrationNum.' and personal Number is:'.$member->mobile);
         }
     }
     /**
@@ -36,9 +36,9 @@ class MemberController extends Controller
          //getting all address
          $address = Address::first();
          //getting office location
-         $officeLocaiton = OfficeLocation::first(); 
+         $officeLocation = OfficeLocation::first(); 
 
-        return view('registeredMember', compact('address', 'officeLocaiton'));
+        return view('registeredMember', compact('address', 'officeLocation'));
     }
 
     /**
@@ -62,14 +62,14 @@ class MemberController extends Controller
          $address = Address::first();
 
          //getting office location
-         $officeLocaiton = OfficeLocation::first(); 
+         $officeLocation = OfficeLocation::first(); 
 
          if(empty($member)){
             $request->session()->now('error', 'There is no information with this Registrtion Number');
-            return view('registeredMember', compact('address', 'officeLocaiton'));
+            return view('registeredMember', compact('address', 'officeLocation'));
                  
          }else{
-            return view('registeredMember', compact('address', 'officeLocaiton', 'member'));
+            return view('registeredMember', compact('address', 'officeLocation', 'member'));
         }
     }
 
@@ -117,34 +117,96 @@ class MemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Member $member, $registrationNum)
     {
-        //
+        //retrieve the stident data
+        $member = Member::where('registrationNum', $registrationNum)->first();
+
+        return view('admin.editMember', compact('member'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $registrationNum)
     {
-        //
+            //validate the member filed
+            $request->validate([
+
+                'firstName' => 'required|string',
+                'lastName' => 'required|string',
+                'fatherName' => 'required|string',
+                'motherName' => 'required|string',
+                'email' => 'required',
+                'mobile' => 'required',
+                'nid' => 'required|string',
+                'birthCertificate' => 'required|string',
+                'birthOfDate' => 'required',
+                'bikashNumber' => 'required',
+                'transectionId' => 'required',
+                'registrationNum' => 'required'
+
+            ]);
+
+            $member = Member::where('registrationNum', $registrationNum)->first();
+
+            $member->firstName = $request->firstName;
+            $member->lastName = $request->lastName;
+            $member->fatherName = $request->fatherName;
+            $member->motherName = $request->motherName;
+            $member->email = $request->email;
+            $member->mobile = $request->mobile;
+            $member->nid = $request->nid;
+            $member->birthCertificate = $request->birthCertificate;
+            $member->birthOfDate = $request->birthOfDate;
+            $member->bikas_number = $request->bikashNumber;
+            $member->transectionId = $request->transectionId;
+            $member->registrationNum = $request->registrationNum;
+            
+
+            if($request->hasFile('photo')){
+
+                $request->photo->storeAs('public',time().'_image_'.$request->photo->getClientOriginalExtension());
+                $image = time().'_image_'.$request->photo->getClientOriginalExtension();
+                $member->photo = $image;
+
+            }
+            if($request->hasFile('signature')){
+                
+                $request->signature->storeAs('public', time().'_signature_'.$request->signature->getClientOriginalExtension());
+                $signature = time().'_signature_'.$request->signature->getClientOriginalExtension();
+                $member->signature = $signature;
+            }
+
+            $save = $member->save();                          
+            if($save){
+
+                return redirect()->route('admin.show.active.member')->with('success', 'Member information has been updated successfully');
+            }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Member $member, $registrationNum)
     {
-        //
+        //retrive the member id
+        $member = Member::where('registrationNum',$registrationNum)->first();
+        //delete the member id 
+        $delete = $member->delete();
+
+        if($delete){
+            return redirect()->route('admin.show.active.member')->with('danger', 'Member information has been updated successfully');;
+        }
     }
 }

@@ -4,7 +4,7 @@
         <div class="col-lg-3">
 
           <div class="footer-first-col">
-            <p><img src="{{asset('img/logo.png')}}" width="50" height="50"></p>
+            <p><img class="rounded-circle" src="{{asset('img/logo.png')}}" width="50" height="50"></p>
              <h6 >Health Education and Development Foundation</h6>
              <p class ="d-block mb-3 text-muted">@c 2020-2021</p>
              <p class ="d-block mb-3 text-muted">Copyright © 2009 - 2020 Health Education and Development Foundation (HE&DF</p>
@@ -35,7 +35,7 @@
               <p class ="d-block mb-3 text-muted">Sunday - Thursday, 9.00 AM to 6.00 PM</p>
 
               @isset($officeLocation)
-              <p><iframe src="{{$officeLocaiton->office_location}}"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+                    <p><iframe src="{{$officeLocation->office_location}}"   height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
               @endisset
              
           </div>

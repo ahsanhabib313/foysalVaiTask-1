@@ -10,20 +10,27 @@
             </div>
             <div class="col-md-12">
                 @if (Session::has('success'))
-                    <div class="alert alert-success">
-                            {{Session::get('success')}}
+                <div class="alert alert-success">
+                        {{Session::get('success')}}
+                </div> 
+            @endif
+          
+                @if (Session::has('danger'))
+                    <div class="alert alert-danger">
+                            {{Session::get('danger')}}
                     </div> 
                 @endif
-                <table class="table table-responsive-xl table-striped text-dark text-center">
+                <table class="table table-responsive table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Mobile No.</th>
+                            <th>Mobile</th>
                             <th>Branch</th>
                             <th>Photo</th>
                             <th>Signature</th>
-                            <th>Registration No.</th>
+                            <th>Registration</th>
+                            <th>Action</th>
                            
                         </tr>
                     </thead>
@@ -39,7 +46,8 @@
                                     <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
                                     <td>{{$member->registrationNum}}</td>
-                                   
+                                    <td><a href="{{ route('admin.member.edit', $member->registrationNum) }}" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="{{ route('admin.member.delete', $member->registrationNum) }}" class="btn btn-sm btn-danger mt-1">Delete</a></td>
                                   
                                 </tr>
                             @endforeach

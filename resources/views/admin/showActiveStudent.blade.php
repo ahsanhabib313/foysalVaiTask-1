@@ -14,7 +14,13 @@
                             {{Session::get('success')}}
                     </div> 
                 @endif
-                <table class="table table-responsive-xl table-striped text-dark text-center">
+              
+                    @if (Session::has('danger'))
+                        <div class="alert alert-danger">
+                                {{Session::get('danger')}}
+                        </div> 
+                    @endif
+                <table class="table table-responsive table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
@@ -26,6 +32,7 @@
                             <th>Registration No.</th>
                            
                             <th>Transection ID</th>
+                            <th>Action</th>
                            
                         </tr>
                     </thead>
@@ -43,6 +50,8 @@
                                   
                                     <td>{{$student->registrationNum}}</td>
                                     <td>{{$student->transectionId}}</td>
+                                    <td><a href="{{ route('admin.student.edit', $student->registrationNum) }}" class="btn btn-sm btn-info">Edit</a>
+                                         <a href="{{ route('admin.student.delete', $student->registrationNum) }}" class="btn btn-sm btn-danger mt-1">Delete</a></td>
                                    
                                     
                                 </tr>

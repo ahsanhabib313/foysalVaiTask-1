@@ -40,7 +40,7 @@
                         
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter email" value="{{old('email')}}">
+                                <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{old('email')}}">
                                 @if ($errors->has('email'))
                                     <p class="text-danger"> {{$errors->first('email')}}</p>
                                 @endif

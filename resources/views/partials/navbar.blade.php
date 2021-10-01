@@ -50,7 +50,7 @@
                 </li>
                 
                 <li class="nav-item ">
-                  <a class="nav-link" href="{{route('show.member.form')}}">Member Registration</a>
+                  <a class="nav-link" href="{{route('show.member.form')}}">Rural Physician Registration</a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="{{route('search.registered.member')}}">Find Registered Rural Physicians</a>

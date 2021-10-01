@@ -7,7 +7,7 @@
 
             <div class="alert alert-success">
                <p class="alert-success font-weight-bold pb-1 m-0 pt-1 ">
-                   <marquee  direction="forwards" scrolldelay="50" scrollamount="10">
+                   <marquee  direction="forwards" >
                             @isset($notices)
                                 @foreach ($notices as $notice)
                                     {{$notice->notice}}
@@ -85,13 +85,13 @@
                         proper standards in the practice of medicine.
                     </p>
 
-                    <div class="row text-center">
+                    <div class="row text-center my-5">
                        
                             @isset($employees)
 
                             @foreach ($employees as $employee)
                                 <div class="col-6">
-                                    <img class="rounded-circle border shadow-lg mb-4 img-fluid" src="{{asset('img/employee/'.$employee->photo)}}" alt width="140" height="140">
+                                    <img class="employee-img rounded border shadow-lg mb-4 img-fluid" src="{{asset('img/employee/'.$employee->photo)}}">
                                     <h4 class="web-header font-weight-bold">{{$employee->name}}</h4>
                                     <p class="font-weight-bold">{{$employee->post}}</p>
                                     <p>Health Education & Development Foundation </p>

@@ -367,6 +367,11 @@ body{
     box-shadow: 0px 0px 5px 0px #ecbfe5;
     
 }
+
+.employee-img{
+    width:150px;
+    height:180;
+}
    
 
 
@@ -405,6 +410,14 @@ body{
 .footer-third-col iframe{
     width: 300px !important;
     height: 200 !important;
+}
+
+
+iframe{
+  
+    border: 1px solid grey;
+    border-radius: 5px;
+   
 }
 
 

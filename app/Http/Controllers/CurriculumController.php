@@ -49,7 +49,7 @@ class CurriculumController extends Controller
 
         if($request->hasFile('file')){
             $file = $request->file('file');
-            $fileName =  $file->getClientOriginalName();
+            $fileName =  time().'.'.$file->getClientOriginalExtension();
             $path = public_path('curriculums');
             $file->move($path, $fileName);
             $curriculum->file = $fileName;
@@ -111,7 +111,7 @@ class CurriculumController extends Controller
 
         if($request->hasFile('file')){
             $file = $request->file('file');
-            $fileName = $file->getClientOriginalName();
+            $fileName =time().'.'.$file->getClientOriginalExtension();
             $path = public_path('curriculums');
             $file->move($path, $fileName);
             $curriculum->file = $fileName;

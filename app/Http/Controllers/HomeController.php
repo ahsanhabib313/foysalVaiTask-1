@@ -43,9 +43,9 @@ class HomeController extends Controller
         $slidePhotos = SliderPhoto::all(); 
 
         //getting office location
-        $officeLocaiton = OfficeLocation::first(); 
+        $officeLocation = OfficeLocation::first(); 
        
-        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'address', 'officeLocaiton'));
+        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'address', 'officeLocation'));
     }
 
     /** Register ******/
@@ -65,9 +65,9 @@ class HomeController extends Controller
          $address = Address::first();
 
          //getting office location
-         $officeLocaiton = OfficeLocation::first(); 
+         $officeLocation = OfficeLocation::first(); 
 
-        return view('admission', compact('officeLocaiton','address'));
+        return view('admission', compact('officeLocation','address'));
 
     }
 
@@ -82,9 +82,9 @@ class HomeController extends Controller
        $address = Address::first();
 
        //getting office location
-       $officeLocaiton = OfficeLocation::first(); 
+       $officeLocation = OfficeLocation::first(); 
 
-      return view('member', compact('officeLocaiton','address'));
+      return view('member', compact('officeLocation','address'));
     }
 
    
@@ -100,9 +100,9 @@ class HomeController extends Controller
          $address = Address::first();
  
          //getting office location
-         $officeLocaiton = OfficeLocation::first(); 
+         $officeLocation = OfficeLocation::first(); 
 
-         return view('contact', compact('address', 'officeLocaiton'));
+         return view('contact', compact('address', 'officeLocation'));
     }
 
     /**
@@ -119,6 +119,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response

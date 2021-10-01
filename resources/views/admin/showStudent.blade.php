@@ -40,8 +40,8 @@
                                     <td>{{$student->branchName->name}}</td>
                                     <td><img src="{{url('storage')}}/{{$student->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{url('storage')}}/{{$student->signature}}" alt=""  height="50" width="50"></td>
-                                    <td>{{$student->bikas_number}}</td>
                                     <td>{{$student->registrationNum}}</td>
+                                    <td>{{$student->bikas_number}}</td>
                                     <td>{{$student->transectionId}}</td>
                                     @if (Auth::user()->role == 1)
                                         <td>

@@ -112,12 +112,18 @@ Route::middleware(['guest'])->group(function () {
          /**********students route*********/
         
          Route::get('/student/active/{id}', [StudentController::class, 'activeStudent'])->name('admin.active.student');
+         Route::get('/student/edit/{registrationNum}', [StudentController::class, 'edit'])->name('admin.student.edit');
+         Route::post('/student/update/{registrationNum}', [StudentController::class, 'update'])->name('admin.student.update');
+         Route::get('/student/delete/{registrationNum}', [StudentController::class, 'destroy'])->name('admin.student.delete');
 
 
 
-        /**********student route*********/
+        /**********member route*********/
        
         Route::get('/member/active/{id}', [MemberController::class, 'active'])->name('admin.active.member');
+        Route::get('/member/edit/{registrationNum}', [MemberController::class, 'edit'])->name('admin.member.edit');
+         Route::post('/member/update/{registrationNum}', [MemberController::class, 'update'])->name('admin.member.update');
+         Route::get('/member/delete/{registrationNum}', [MemberController::class, 'destroy'])->name('admin.member.delete');
   
      
     
@@ -175,6 +181,7 @@ Route::middleware(['guest'])->group(function () {
         
          Route::get('/edit/office/location/{id}', [OfficeLocationController::class, 'edit'])->name('admin.edit.office.location');
          Route::post('/update/office/location/{id}', [OfficeLocationController::class, 'update'])->name('admin.update.office.location');
+         Route::get('/delete/office/location/{id}', [OfficeLocationController::class, 'destroy'])->name('admin.delete.office.location');
 
         
     });

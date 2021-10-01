@@ -367,8 +367,7 @@
                     <div class="col-md-8 offset-md-2">
                         <div class="payment-section">
                             <h3 class="bikash-title text-center">Bikash Payment</h1>
-                            
-
+                                
                             <div class="form-group">
                                 <label for="bikas_transectionId">Bikash Number</label>
                                 <input class="form-control" type="number" wire:model="bikashNumber" placeholder="enter your bikash number">

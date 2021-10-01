@@ -123,7 +123,7 @@ class MemberForm extends Component
                 'lastName' => 'required|string',
                 'fatherName' => 'required|string',
                 'motherName' => 'required|string',
-                'email' => 'required|unique:students',
+                'email' => 'required|unique:members',
                 'gender' => 'required|string',
                 'mobile' => 'required',
                 'nid' => 'required|string',
@@ -170,11 +170,12 @@ class MemberForm extends Component
                 'bikashNumber' => 'required'
             ]);  
             
-            $this->photo->storeAs('public',$this->photo->getClientOriginalName());
-            $this->signature->storeAs('public',$this->signature->getClientOriginalName());
+            $this->photo->storeAs('public', time().'_photo_'.$this->photo->getClientOriginalExtension());
+            $this->signature->storeAs('public', time().'_signature_'.$this->signature->getClientOriginalExtension());
   
-            $image = $this->photo->getClientOriginalName();
-            $signature = $this->signature->getClientOriginalName();
+
+            $image = time().'_photo_'.$this->photo->getClientOriginalExtension();
+            $signature =   time().'_signature_'.$this->signature->getClientOriginalExtension();
 
            
 

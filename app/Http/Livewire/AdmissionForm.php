@@ -167,11 +167,11 @@ class AdmissionForm extends Component
 
             
 
-          $this->photo->storeAs('public',$this->photo->getClientOriginalName());
-          $this->signature->storeAs('public',$this->signature->getClientOriginalName());
+          $this->photo->storeAs('public', time().'_photo_'.$this->photo->getClientOriginalExtension());
+          $this->signature->storeAs('public', time().'_signature_'.$this->signature->getClientOriginalExtension());
 
-          $photo = $this->photo->getClientOriginalName();
-          $signature = $this->signature->getClientOriginalName();
+          $photo = time().'_photo_'.$this->photo->getClientOriginalExtension();
+          $signature =   time().'_signature_'.$this->signature->getClientOriginalExtension();
         
          
 

@@ -13,6 +13,11 @@
                         {{Session::get('success')}}
                     </div>
                 @endif
+                @if (Session::has('danger'))
+                    <div class="alert alert-danger">
+                        {{Session::get('danger')}}
+                    </div>
+                @endif
             </div>
             <div class="col-md-12">
                 <table class="table  table-responsive table-striped text-dark text-center" style="overflow-x:auto;">
@@ -31,8 +36,8 @@
                                         <td style="overflow-x: auto">{{$officeLocation->office_location}}</td>
                                         @if (Auth::user()->role == 1)
                                         <td> 
-                                            <a class="btn btn-success" href="{{route('admin.edit.office.location', $officeLocation->id)}}">Edit</a>
-                                           {{--  <a class="btn btn-danger" href="{{route('admin.delete.office.location', $officeLocation->id)}}">Delete</a> --}}
+                                            <a class="btn btn-sm btn-success" href="{{route('admin.edit.office.location', $officeLocation->id)}}">Edit</a>
+                                           <a class="btn btn-sm btn-danger my-2" href="{{route('admin.delete.office.location', $officeLocation->id)}}">Delete</a>
                                         </td>
                                         @endif
                                     </tr>
