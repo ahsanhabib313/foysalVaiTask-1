@@ -30,7 +30,7 @@ class LoginController extends Controller
         //validate the requests
         $request->validate([
             'email'    => 'required|email|exists:users',
-            'password' => 'required|max:8'
+            'password' => 'required'
         ]);
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){

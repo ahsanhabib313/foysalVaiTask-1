@@ -141,15 +141,15 @@ class StudentController extends Controller
            
             if($request->hasFile('photo')){
 
-                $request->photo->storeAs('public',time().'_image_'.$request->photo->getClientOriginalExtension());
-                $image = time().'_image_'.$request->photo->getClientOriginalExtension();
+                $request->photo->storeAs('public',time().'_image_'.'.'.$request->photo->getClientOriginalExtension());
+                $image = time().'_image_'.'.'.$request->photo->getClientOriginalExtension();
                 $student->photo = $image;
 
             }
             if($request->hasFile('signature')){
                 
-                $request->signature->storeAs('public', time().'_signature_'.$request->signature->getClientOriginalExtension());
-                $signature = time().'_signature_'.$request->signature->getClientOriginalExtension();
+                $request->signature->storeAs('public', time().'_signature_'.'.'.$request->signature->getClientOriginalExtension());
+                $signature = time().'_signature_'.'.'.$request->signature->getClientOriginalExtension();
                 $student->signature = $signature;
             }
 

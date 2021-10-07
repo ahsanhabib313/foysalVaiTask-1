@@ -55,8 +55,8 @@ Route::middleware(['guest'])->group(function () {
       //Authentication route
       Route::get('/login', [LoginController::class, 'index']);
       Route::post('user/login', [LoginController::class, 'login'])->name('user.login');
-      Route::get('/register', [RegisterController::class, 'index']);
-      Route::post('/user/register', [RegisterController::class, 'register'])->name('user.register');
+      //Route::get('/register', [RegisterController::class, 'index']);
+     // Route::post('/user/register', [RegisterController::class, 'register'])->name('user.register');
       
     });
 });

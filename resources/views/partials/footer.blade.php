@@ -7,7 +7,7 @@
             <p><img class="rounded-circle" src="{{asset('img/logo.png')}}" width="50" height="50"></p>
              <h6 >Health Education and Development Foundation</h6>
              <p class ="d-block mb-3 text-muted">@c 2020-2021</p>
-             <p class ="d-block mb-3 text-muted">Copyright © 2009 - 2020 Health Education and Development Foundation (HE&DF</p>
+             <p class ="d-block mb-3 text-muted">Copyright © 2009 - 2020 Health Education and Development Foundation (HE&DF)</p>
              <p class ="d-block mb-3 text-muted"><span>Developed by</span> - Sheikh Ahsan Habib. IIT, University Of Dhaka.</p>
           </div>
 
@@ -17,8 +17,8 @@
                <h6>Resources</h6>
                <ul>
                  <li><a href="#">Welcome to HEDF</a></li>
-                 <li><a href="#">Contact</a></li>
-                 <li><a href="#">Find Registered Doctor</a></li>
+                 <li><a href="{{route('contact')}}">Contact</a></li>
+                 <li><a href="{{route('search.registered.member')}}">Find Registered Rural Physicians</a></li>
                  <li><a href="#">Accessibility</a></li>
                  <li><a href="#">Terms of Use</a></li>
                  <li><a href="#">Privacy Policy</a></li>

@@ -31,7 +31,7 @@
                 <a href="" class="mujib_logo">
                   <img src="../img/mujib_logo.png">
                 </a>
-                <a href="https://payment.bmdc.org.bd/" target="_blank" class="payment_logo">
+                <a href="#" target="_blank" class="payment_logo">
                   <img src="../img/online_pay.png">
                 </a>
 

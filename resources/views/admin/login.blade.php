@@ -32,7 +32,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                    <a class="d-block text-muted mt-3" href="{{url('admin/register')}}">Register Now</a>
+                  {{--   <a class="d-block text-muted mt-3" href="{{url('admin/register')}}">Register Now</a> --}}
             </div>
         </div>
     </div>

@@ -170,12 +170,12 @@ class MemberForm extends Component
                 'bikashNumber' => 'required'
             ]);  
             
-            $this->photo->storeAs('public', time().'_photo_'.$this->photo->getClientOriginalExtension());
-            $this->signature->storeAs('public', time().'_signature_'.$this->signature->getClientOriginalExtension());
+            $this->photo->storeAs('public', time().'_photo_'.'.'.$this->photo->getClientOriginalExtension());
+            $this->signature->storeAs('public', time().'_signature_'.'.'.$this->signature->getClientOriginalExtension());
   
 
-            $image = time().'_photo_'.$this->photo->getClientOriginalExtension();
-            $signature =   time().'_signature_'.$this->signature->getClientOriginalExtension();
+            $image = time().'_photo_'.'.'.$this->photo->getClientOriginalExtension();
+            $signature =   time().'_signature_'.'.'.$this->signature->getClientOriginalExtension();
 
            
 
