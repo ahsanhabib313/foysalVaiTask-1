@@ -31,6 +31,7 @@ class CreateMembersTable extends Migration
             $table->unsignedInteger('presentUpozilla_id');
             $table->string('presentPostOffice');
             $table->bigInteger('presentPostCode');
+            $table->string('village');
             $table->unsignedInteger('branch_name_id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('duration_id');

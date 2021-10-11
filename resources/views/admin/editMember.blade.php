@@ -102,11 +102,7 @@
                               <input class="form-control" value="{{ $member->transectionId }}" type="text" name="transectionId">
                               <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
                           </div>
-                          <div class="form-group col-3">
-                            <label for="bikas_transectionId">Registration</label>
-                            <input class="form-control" value="{{ $member->registrationNum }}" type="number" name="registrationNum">
-                            <span class="text-danger">@error('registrationNum'){{$message}} @enderror</span>
-                        </div>
+                        
                            </div>
                             <button type="submit" class="btn  btn-primary">Update</button>
                         </form>    

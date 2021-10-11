@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+@font-face{
+    font-family: SutonnyMJ;
+    src: url(../fonts/SutonnyMJ-Bold.ttf);
+}
 body{
    
     background: #fff url(../img/bg_main.gif) no-repeat center center fixed;
@@ -16,9 +20,20 @@ body{
     box-shadow: 0 0 10px 5px #0000003b;
 }
 
-.header .header_left_part .header_right_part  {
+.header .header_left_part {
 
     margin-top: 10px;
+}
+
+.header .header_right_part {
+
+    margin-top: 10px;
+}
+.header  .header_right_part .advertise-logo  {
+
+    width: 375 !important;
+    height: 135 !important;
+   
 }
 
 .header .header_left_part .logo_div{
@@ -28,6 +43,7 @@ body{
 
 .header .header_left_part .logo_div img{
     width: 125px;
+    border-radius: 50%;
 } 
 
 .header .header_left_part .header_left_text{
@@ -49,12 +65,13 @@ body{
 
 
 .header .header_left_part .header_left_text p{
-    background-color:#fff6b3;
-    padding: 5px 10px 5px 92px;
+    background-image: linear-gradient(to left, #ffa51e, transparent); 
+    padding: 5px 10px 5px 75px;
     font-size: 13px;
     color: #0e0e0e !important;
-    margin-left:50px;
+    margin-left: 50px;
     line-height: 1.4;
+    text-align: justify;
 }
 
 .header .header_right_part{
@@ -125,6 +142,7 @@ body{
     background-color: #ce842a !important;
     box-shadow: 0 5px 10px #afafaf;
     color: white !important;
+    padding-left: 100px;
 }
 
 .navigation .navbar-nav {
@@ -401,6 +419,12 @@ body{
     text-decoration: none;
     color: #6c757d !important;
     font-size: 15px;
+    display: block;
+    margin-top: 5px;
+}
+
+.footer .footer-second-col a.bangla-font{
+    font-family:  SutonnyMJ;
 }
 
 .footer .footer-second-col a:hover{

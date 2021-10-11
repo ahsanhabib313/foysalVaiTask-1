@@ -193,35 +193,47 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Course Name</label>
-                                <select class="form-control" wire:model="courseName" >
-                                    <option>Select Course Name</option>
-                                    @isset($courses)
-                                        @foreach ($courses as $course)
-                                            <option value="{{$course->id}}">{{$course->name}}</option>
-                                        @endforeach
-                                    @endisset
-                                </select>
-                                <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
-                            </div> 
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Course Duration</label>
-                                <select class="form-control" wire:model="duration"  >
-                                    <option>Select Course Duration</option>
-                                    @isset($durations)
-                                        @foreach ($durations as $duration)
-                                            <option value="{{$duration->id}}">{{$duration->duration}}</option>
-                                        @endforeach
-                                    @endisset
-                                </select>
-                                <span class="text-danger">@error('duration'){{$message}} @enderror</span>
-                            </div> 
+                                <label for="">Village</label>
+                                <input class="form-control" wire:model="village"  placeholder="enter your village name">
+                                <span class="text-danger">@error('village'){{$message}} @enderror</span>
+                            </div>
                         </div>
 
+                     </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Course Name</label>
+                                    <select class="form-control" wire:model="courseName" >
+                                        <option>Select Course Name</option>
+                                        @isset($courses)
+                                            @foreach ($courses as $course)
+                                                <option value="{{$course->id}}">{{$course->name}}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
+                                    <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
+                                </div> 
+                            </div>
+                   
+                    
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Course Duration</label>
+                                    <select class="form-control" wire:model="duration"  >
+                                        <option>Select Course Duration</option>
+                                        @isset($durations)
+                                            @foreach ($durations as $duration)
+                                                <option value="{{$duration->id}}">{{$duration->duration}}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
+                                    <span class="text-danger">@error('duration'){{$message}} @enderror</span>
+                                </div> 
+                            </div>
+                        </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Course Registration No.</label>
@@ -229,9 +241,7 @@
                                 <span class="text-danger">@error('registrationNum'){{$message}} @enderror</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Branch Name</label>

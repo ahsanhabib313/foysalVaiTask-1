@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Address;
 use App\Models\OfficeLocation;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -54,10 +55,11 @@ class MemberController extends Controller
         ]);
 
         // searching the member
-        $member = Member::where('registrationNum',$request->registrationNum)
-                        ->where('status', 1)
-                        ->first();
-                      
+      $member =Member::where('registrationNum',$request->registrationNum)
+                    ->where('status', 1)
+                    ->first(); 
+                    
+       // dd($member);
         //getting all address
          $address = Address::first();
 

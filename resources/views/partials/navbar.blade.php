@@ -10,7 +10,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ">
 
-                <li class="nav-item dropdown">
+              {{--   <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    About
                   </a>
@@ -25,7 +25,7 @@
                           
                       </div>
                   </div>
-                </li>
+                </li> --}}
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,14 +43,14 @@
                   </div>
                 </li>
 
-                <li class="nav-item ">
+              {{--   <li class="nav-item ">
                   <a class="nav-link " href="{{route('show.admission.form')}}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
                    Student Registration
                   </a>
                 </li>
-                
+                 --}}
                 <li class="nav-item ">
-                  <a class="nav-link" href="{{route('show.member.form')}}">Rural Physician Registration</a>
+                  <a class="nav-link" href="{{route('show.member.form')}}"> Registration</a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="{{route('search.registered.member')}}">Find Registered Rural Physicians</a>

@@ -6,12 +6,12 @@
     
        <div id="searchMember" >
             <div class="row">
-                <div class="col-lg-8 offset-lg-2">
+                <div class="col-lg-10 offset-lg-1">
                     <div class="card">
                         <div class="card-header pb-5">
                             <h5 class="card-title text-center py-3">Search Registered Rural Physicians</h5>
                             <div class="search-form">
-                                <form autocomplete="off" class="col-10" action="{{route('search.registered.member')}}" method="POST">
+                                <form autocomplete="on" class="col-10" action="{{route('search.registered.member')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="registrationNum"> Registration Number </label>
@@ -31,37 +31,39 @@
                                 @endif
                             <table class="table  table-striped my-3">
                                 @isset($member)
-                                 
-                                   <tr>
-                                      <th></th>
-                                      <td><img class="img-fluid" src="{{asset('storage/'.$member->photo)}}" alt="" width="250" height="250"></td>
-                                  </tr>
-                                  <tr>
-                                    <th>Registration No.</th>
-                                    <td>{{$member->registrationNum}}</td>
-                                  </tr>
-                                    <tr>
-                                        <th>Name</th>
-                                        <td>{{$member->firstName}} {{$member->lastName}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Father's Name</th>
-                                        <td>{{$member->fatherName}}</td>
-                                    </tr>
-                                  
-                                    <tr>
-                                        <th>Course Name </th>
-                                        <td>{{$member->course->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Course Duration</th>
-                                        <td>{{$member->duration->duration}}</td>
-                                    </tr>
-                                    
-                                 
-                                
-                                 
+
+
+                                <tbody>
+                                        <tr>
+                                            <th>Registration No.</th>
+                                            <th>{{$member->registrationNum}}</th>
+                                            <th rowspan="7" align="center"><img class="img-fluid" src="{{asset('storage/'.$member->photo)}}" alt="" width="250" height="250"></th>
+                                        </tr>
                                    
+                                   
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>{{$member->firstName.' '.$member->lastName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Father's Name</td>
+                                            <td>{{$member->fatherName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Name </td>
+                                            <td>{{$member->course->name}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Course Duration</th>
+                                            <td>{{$member->duration->duration}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address</th>
+                                            <td>{{$member->presentDistrict->name.', '.$member->presentUpozilla->name.', '.$member->presentPostOffice.', '.$member->presentPostCode.', '.$member->village}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
 
                                  @endisset
                                 

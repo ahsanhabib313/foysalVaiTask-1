@@ -14,17 +14,15 @@
         </div>
         <div class="col-lg-2">
              <div class="footer-second-col">
-               <h6>Resources</h6>
+               <h6>Important Links</h6> 
                <ul>
-                 <li><a href="#">Welcome to HEDF</a></li>
-                 <li><a href="{{route('contact')}}">Contact</a></li>
-                 <li><a href="{{route('search.registered.member')}}">Find Registered Rural Physicians</a></li>
-                 <li><a href="#">Accessibility</a></li>
-                 <li><a href="#">Terms of Use</a></li>
-                 <li><a href="#">Privacy Policy</a></li>
-                 <li><a href="#">Site Map</a></li>
-                 <li><a href="#">Use Links</a></li>
-                 <li><a href="#">Webmail Login</a></li>
+                 <li><a href="{{route('home')}}">Welcome to HEDF</a></li>
+                 <li><a href="{{route('contact')}}" target="_blank">Contact</a></li>
+                 <li><a href="{{route('search.registered.member')}}" target="_blank">Find Registered Rural Physicians</a></li>
+                 <li><a class="bangla-font" href="https://mohfw.portal.gov.bd/" target="_blank">স্বাস্থ্য ও পরিবার কল্যান মন্ত্রণালয় </a></li>
+                 <li><a  class="bangla-font" href="https://www.dghs.gov.bd/index.php/bd/?option=com_content&view=article&id=1454" target="_blank">স্বাস্থ্য অধিদপ্তর  </a></li>
+                 <li><a  class="bangla-font" href="https://www.who.int/" target="_blank">বিশ্ব স্বাস্থ্য সংস্থা</a></li>
+                
                </ul>
 
           </div>

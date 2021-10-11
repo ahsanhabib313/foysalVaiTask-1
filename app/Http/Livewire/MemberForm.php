@@ -33,6 +33,7 @@ class MemberForm extends Component
     public $presentUpozilla;
     public $presentPostOffice;
     public $presentPostCode;
+    public $village;
     public $courseName;
     public $duration;
     public $registrationNum;
@@ -139,6 +140,7 @@ class MemberForm extends Component
                 'presentUpozilla' => 'required',
                 'presentPostOffice' => 'required',
                 'presentPostCode' => 'required',
+                'village'         => 'required',
                 'branchName' => 'required',
                 'courseName' => 'required',
                 'duration' =>'required',
@@ -205,6 +207,7 @@ class MemberForm extends Component
             'presentUpozilla_id' => $this->presentUpozilla,
             'presentPostOffice' => $this->presentPostOffice,
             'presentPostCode' => $this->presentPostCode,
+            'village'         =>$this->village,
             'branch_name_id' => $this->branchName,
             'course_id' => $this->courseName,
             'duration_id' => $this->duration,
