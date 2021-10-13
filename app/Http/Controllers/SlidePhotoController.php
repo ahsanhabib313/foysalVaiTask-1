@@ -80,7 +80,10 @@ class SlidePhotoController extends Controller
      */
     public function edit($id)
     {
-        //
+        //get the slide 
+        $slide = SliderPhoto::find($id);
+
+        return view('admin.editSlidePhoto', compact('slide'));
     }
 
     /**
@@ -92,7 +95,29 @@ class SlidePhotoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //validate the request 
+       $request->validate([
+        'title' => 'required',
+        'photo' => 'required|image|mimes:jpg, jpeg,png'
+    ]);
+
+    // save data in database
+    $sliderPhoto =  SliderPhoto::findOrFail($id);
+
+    $sliderPhoto->title = $request->title;
+    if($request->hasFile('photo')){
+        $image = $request->file('photo');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $path = public_path('img/slider');
+        $image->move($path, $imageName);
+        $sliderPhoto->photo = $imageName;
+    } 
+
+    $save = $sliderPhoto->save();
+        if($save){
+            $request->session()->flash('success', 'Slider Photo has been updated Successfully');
+            return redirect()->route('admin.show.slide.photo');
+        }
     }
 
     /**

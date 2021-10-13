@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row text-dark">
             <div class="col-md-12">
-                <h3 class="text-center my-3">All Active Members</h3>
+                <h3 class="text-center my-3">All Active Physicians</h3>
             </div>
             <div class="col-md-12">
                 @if (Session::has('success'))

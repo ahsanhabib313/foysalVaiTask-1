@@ -48,41 +48,25 @@
                         <span>Dashboard</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('home')}}">
+                    <a class="nav-link" href="{{route('home')}}" target="_blank">
                         <i class="fas fa-home"></i>
                         <span>Home</span></a>
                 </li>
     
                 <!-- Divider -->
                 <hr class="sidebar-divider"> 
-                  <!-- Nav Item - Pages Collapse Menu -->
-                  <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#students"
-                        aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-folder"></i>
-                        <span class="text-light display-6">Students</span>
-                    </a>
-                    <div id="students" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{route('admin.show.student')}}">Show Pending Students</a>
-                            <a class="collapse-item" href="{{route('admin.show.active.student')}}">Show Active Students</a>
-                        </div>
-                    </div>
-                      
-                </li>   
-                
               
                    <!-- Nav Item - Pages Collapse Menu -->
                    <li class="nav-item">
                      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#members"
                          aria-expanded="true" aria-controls="collapsePages">
                          <i class="fas fa-folder"></i>
-                         <span class="text-light display-6">Members</span>
+                         <span class="text-light display-6">Rural Physicians</span>
                      </a>
                      <div id="members" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                          <div class="bg-white py-2 collapse-inner rounded">
-                             <a class="collapse-item" href="{{route('admin.show.member')}}">Show Pending Members</a>
-                             <a class="collapse-item" href="{{route('admin.show.active.member')}}">Show Active Members</a>
+                             <a class="collapse-item" href="{{route('admin.show.member')}}">Pending Rural Physicians</a>
+                             <a class="collapse-item" href="{{route('admin.show.active.member')}}">Active Rural Physicians</a>
                          </div>
                      </div>
                  </li> 
@@ -215,6 +199,73 @@
                             <a class="collapse-item" href="{{route('admin.show.office.location')}}">Show </a>
                         </div>
                     </div>
+                </li>
+
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#advertiseLogo"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Advertise Logo</span>
+                    </a>
+                    <div id="advertiseLogo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
+                            <a class="collapse-item" href="{{route('admin.create.advertising.logo')}}">Add </a>
+                            @endif
+                            <a class="collapse-item" href="{{route('admin.show.advertising.logo')}}">Show </a>
+                        </div>
+                    </div>    
+                </li>
+
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#committee"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Committee</span>
+                    </a>
+                    <div id="committee" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
+                            <a class="collapse-item" href="{{route('committee.create')}}">Add </a>
+                            @endif
+                            <a class="collapse-item" href="{{route('committee.index')}}">Show </a>
+                        </div>
+                    </div>    
+                </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#committeeMember"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Committee Member</span>
+                    </a>
+                    <div id="committeeMember" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
+                            <a class="collapse-item" href="{{route('committeeMember.create')}}">Add </a>
+                            @endif
+                            <a class="collapse-item" href="{{route('committeeMember.index')}}">Show </a>
+                        </div>
+                    </div>    
+                </li>
+
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#branch"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-folder"></i>
+                        <span class="text-light display-6">Branch</span>
+                    </a>
+                    <div id="branch" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            @if (Auth::user()->role == 1)
+                            <a class="collapse-item" href="{{route('admin.create.branch')}}">Add </a>
+                            @endif
+                            <a class="collapse-item" href="{{route('admin.show.branch')}}">Show </a>
+                        </div>
+                    </div>    
                 </li>
               
             </ul>

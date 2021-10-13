@@ -12,6 +12,8 @@ use App\Models\CurriCulum;
 use App\Models\RecentNews;
 use App\Models\SliderPhoto;
 use App\Models\Address;
+use App\Models\AdvertiseLogo;
+use App\Models\Committee;
 use App\Models\OfficeLocation;
 
 class HomeController extends Controller
@@ -44,8 +46,14 @@ class HomeController extends Controller
 
         //getting office location
         $officeLocation = OfficeLocation::first(); 
+
+        //get the advertising logo
+        $advertisingLogo = AdvertiseLogo::first();
+
+        //get all committee
+        $committees = Committee::all();
        
-        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'address', 'officeLocation'));
+        return view('home', compact('notices', 'employees', 'curriculums','recentNews','slidePhotos', 'address', 'officeLocation','advertisingLogo', 'committees'));
     }
 
     /** Register ******/
@@ -84,7 +92,13 @@ class HomeController extends Controller
        //getting office location
        $officeLocation = OfficeLocation::first(); 
 
-      return view('member', compact('officeLocation','address'));
+       //get the advertising logo
+       $advertisingLogo = AdvertiseLogo::first();
+
+       //get all committee
+       $committees = Committee::all();
+
+      return view('member', compact('officeLocation','address', 'advertisingLogo', 'committees'));
     }
 
    
@@ -98,11 +112,16 @@ class HomeController extends Controller
     {
          //getting all address
          $address = Address::first();
+         //get the advertising logo
+        $advertisingLogo = AdvertiseLogo::first();
  
          //getting office location
          $officeLocation = OfficeLocation::first(); 
 
-         return view('contact', compact('address', 'officeLocation'));
+        //get all committee
+        $committees = Committee::all();
+
+         return view('contact', compact('address', 'officeLocation', 'advertisingLogo', 'committees'));
     }
 
     /**

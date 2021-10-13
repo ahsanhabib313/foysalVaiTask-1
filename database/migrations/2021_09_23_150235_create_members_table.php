@@ -32,7 +32,7 @@ class CreateMembersTable extends Migration
             $table->string('presentPostOffice');
             $table->bigInteger('presentPostCode');
             $table->string('village');
-            $table->unsignedInteger('branch_name_id');
+            $table->unsignedInteger('branch_id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('duration_id');
             $table->string('checkAddress')->nullable();   
@@ -54,7 +54,7 @@ class CreateMembersTable extends Migration
             $table->foreign('presentDivision_id')->references('id')->on('divisions')->onDelete('cascade');
             $table->foreign('presentDistrict_id')->references('id')->on('districts')->onDelete('cascade');
             $table->foreign('presentUpozilla_id')->references('id')->on('upozillas')->onDelete('cascade');
-            $table->foreign('branch_name_id')->references('id')->on('branch_names')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('duration_id')->references('id')->on('durations')->onDelete('cascade');
             $table->foreign('permanentDivision_id')->references('id')->on('divisions')->onDelete('cascade');

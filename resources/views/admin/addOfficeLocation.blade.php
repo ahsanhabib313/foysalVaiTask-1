@@ -16,7 +16,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Office Location</label>
-                                <textarea name="office_location"  rows="5" placeholder="enter google map src without double quotation..." class="form-control"></textarea>
+                                <textarea name="office_location"  rows="5" placeholder="enter Embed map source..." class="form-control"></textarea>
                                 @if ($errors->has('office_location'))
                                     <p class="text-danger"> {{$errors->first('office_location')}}</p>
                                  @endif

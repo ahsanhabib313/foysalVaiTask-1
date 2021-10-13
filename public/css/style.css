@@ -27,12 +27,13 @@ body{
 
 .header .header_right_part {
 
-    margin-top: 10px;
+    margin-top: 25px  !important;
+    float: right;
 }
 .header  .header_right_part .advertise-logo  {
 
-    width: 375 !important;
-    height: 135 !important;
+    width: 375px !important;
+    height: 143px !important;
    
 }
 
@@ -65,7 +66,7 @@ body{
 
 
 .header .header_left_part .header_left_text p{
-    background-image: linear-gradient(to left, #ffa51e, transparent); 
+    background-image: linear-gradient(to left, #f3bc6b, transparent); 
     padding: 5px 10px 5px 75px;
     font-size: 13px;
     color: #0e0e0e !important;
@@ -74,9 +75,7 @@ body{
     text-align: justify;
 }
 
-.header .header_right_part{
-    float: right;
-}
+
 
 .header .header_right_part .header_link ul{
     list-style-type: none;
@@ -124,18 +123,7 @@ body{
     margin-top: 20px;
 }
 
-.header .header_right_part .advertise_part .mujib_logo img{
-    height: 65px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
 
-.header .header_right_part .advertise_part .payment_logo img {
-    height: 65px;
-    position: absolute;
-    left: 50px;
-}
 
 /* Navigation bar style*/
 .bg-bmdc {
@@ -433,7 +421,7 @@ body{
 
 .footer-third-col iframe{
     width: 300px !important;
-    height: 200 !important;
+    height: 200px !important;
 }
 
 

@@ -213,7 +213,7 @@
                                             @endforeach
                                         @endisset
                                     </select>
-                                    <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
+                                    <span class="text-danger">@error('courseName'){{$message}} @enderror</span>
                                 </div> 
                             </div>
                    
@@ -245,15 +245,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Branch Name</label>
-                                <select class="form-control" wire:model="branchName"  placeholder="enter your branch name">
+                                <select class="form-control" wire:model="branch"  placeholder="enter your branch name">
                                     <option>Select Branch Name</option>
-                                    @isset($branchNames)
-                                        @foreach ($branchNames as $item)
+                                    @isset($branches)
+                                        @foreach ($branches as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
                                         @endforeach
                                     @endisset
                                 </select>
-                                <span class="text-danger">@error('branchName'){{$message}} @enderror</span>
+                                <span class="text-danger">@error('branch'){{$message}} @enderror</span>
                             </div> 
                         </div>
                     </div>

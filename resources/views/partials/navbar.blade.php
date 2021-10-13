@@ -34,9 +34,12 @@
                   <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                         <div class="row">
                           <div class="col-lg-12">
-                           <a href="#">Guideline for Recognition </a>
-                           <a href="#">How it Works</a>
-                           <a href="#">Institution Organogram</a> 
+                            @isset($committees)
+                                @foreach ($committees as $committee)
+                                <a href="{{ route('show.committee.member',$committee->id) }}">{{ $committee->name }} </a>
+                                @endforeach
+                            @endisset
+                         
                           </div>
 
                         </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Address;
+use App\Models\AdvertiseLogo;
+use App\Models\Committee;
 use App\Models\OfficeLocation;
 use Illuminate\Support\Facades\DB;
 
@@ -38,8 +40,13 @@ class MemberController extends Controller
          $address = Address::first();
          //getting office location
          $officeLocation = OfficeLocation::first(); 
+         //get the advertising logo
+        $advertisingLogo = AdvertiseLogo::first();
 
-        return view('registeredMember', compact('address', 'officeLocation'));
+        //get all committee
+        $committees = Committee::all();
+
+        return view('registeredMember', compact('address', 'officeLocation', 'advertisingLogo', 'committees'));
     }
 
     /**

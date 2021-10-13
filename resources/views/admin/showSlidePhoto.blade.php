@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row text-dark">
             <div class="col-lg-12">
-                <h3 class="text-center my-3">All Slide Photos</h3>
+                <h3 class="text-center my-3 text-white">All Slide Photos</h3>
             </div>
             <div class="col-lg-6 offset-lg-3">
                 @if (Session::has('success'))
@@ -33,6 +33,7 @@
                                         <td><img src="{{asset('img/slider/'.$sliderPhoto->photo)}}" alt="" height="50" width="50"></td>
                                         @if (Auth::user()->role == 1)
                                         <td> 
+                                            <a class="btn btn-success" href="{{route('admin.edit.slide.photo',$sliderPhoto->id)}}">Edit</a>
                                             <a class="btn btn-danger" href="{{route('admin.destroy.slide.photo',$sliderPhoto->id)}}">Delete</a>
                                         </td>
                                         @endif

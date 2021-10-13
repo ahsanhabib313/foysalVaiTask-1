@@ -36,7 +36,7 @@ class Member extends Model
     }
 
     public function branch(){
-        return $this->belongsTo(BranchName::class, 'branch_name_id');
+        return $this->belongsTo(Branch::class, 'branch_id');
     }
     public function course(){
         return $this->belongsTo(Course::class);

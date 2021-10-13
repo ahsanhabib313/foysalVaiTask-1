@@ -93,7 +93,7 @@
                                 <label for="bikas_transectionId">Bikash Number</label>
                                 <input class="form-control" value="{{ $member->bikas_number }}" type="number" name="bikashNumber">
                                 <span class="text-danger">@error('bikashNumber'){{$message}} @enderror</span>
-                            </div>
+                              </div>
                               
                            </div>
                            <div class="row">
@@ -101,6 +101,11 @@
                               <label for="bikas_transectionId">Bikash Transection ID</label>
                               <input class="form-control" value="{{ $member->transectionId }}" type="text" name="transectionId">
                               <span class="text-danger">@error('transectionId'){{$message}} @enderror</span>
+                          </div>
+                          <div class="form-group col-3">
+                            <label for="bikas_transectionId">Course Registration No.</label>
+                            <input class="form-control" value="{{ $member->registrationNum }}" type="number" name="registrationNum">
+                            <span class="text-danger">@error('registrationNum'){{$message}} @enderror</span>
                           </div>
                         
                            </div>

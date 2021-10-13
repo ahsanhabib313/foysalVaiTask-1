@@ -37,7 +37,7 @@
                                         <tr>
                                             <th>Registration No.</th>
                                             <th>{{$member->registrationNum}}</th>
-                                            <th rowspan="7" align="center"><img class="img-fluid" src="{{asset('storage/'.$member->photo)}}" alt="" width="250" height="250"></th>
+                                            <th rowspan="7" align="center"><img style="float:right" class="img-fluid" src="{{asset('storage/'.$member->photo)}}" alt="" width="250" height="250"></th>
                                         </tr>
                                    
                                    

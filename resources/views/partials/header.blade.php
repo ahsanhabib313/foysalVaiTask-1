@@ -11,13 +11,15 @@
                 <h3>Health Education & Development Foundation</h3>
                 <p>The Health Education & Development Foundation (HE&DF) is a statutory body with the responsibility of establishing and maintaining minimum standards of health education and recognition of primary medical qualifications in Bangladesh. It registers primary physicians to practice in Bangladesh in order to protect and promote the primary health and safety of the public by ensuring proper minimum standards in the practice of the primary health worker</p>   
               </div>
-               
-
+              
           </div>
           </div>
           <div class="col-lg-4 d-none d-lg-block">
             <div class="header_right_part">
-              <img class="advertise-logo" src="{{ asset('img/mujib_logo.jpg') }}" alt="advertising logo">
+              @isset($advertisingLogo)
+              <img class="advertise-logo" src="{{ asset('img/advertisingLogo/'.$advertisingLogo->logo) }}" alt="advertising logo">
+              @endisset
+             
           </div>
         </div>
 

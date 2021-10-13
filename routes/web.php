@@ -18,6 +18,10 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\OfficeLocationController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\AdvertiseLogoController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\CommitteeMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +36,7 @@ use App\Http\Controllers\DownloadController;
 
 Route::get('/home',[HomeController::class, 'index'] )->name('home');
 Route::get('/admission', [HomeController::class, 'showAdmissionForm'])->name('show.admission.form');
+Route::get('/show/committee/member/{id}', [CommitteeMemberController::class, 'showCommitteeMember'])->name('show.committee.member');
 
 //Registered member route
 Route::get('/member', [HomeController::class, 'showMemberForm'])->name('show.member.form');
@@ -57,7 +62,8 @@ Route::middleware(['guest'])->group(function () {
       Route::post('user/login', [LoginController::class, 'login'])->name('user.login');
       //Route::get('/register', [RegisterController::class, 'index']);
      // Route::post('/user/register', [RegisterController::class, 'register'])->name('user.register');
-      
+
+    
     });
 });
 
@@ -78,6 +84,19 @@ Route::middleware(['guest'])->group(function () {
       Route::get('show/notice', [NoticeController::class, 'show'])->name('admin.show.notice');
       Route::get('/show/course/', [CourseController::class, 'show'])->name('admin.show.course');
       Route::get('/show/office/location', [OfficeLocationController::class, 'show'])->name('admin.show.office.location');
+      Route::get('/show/advertising/logo', [AdvertiseLogoController::class, 'show'])->name('admin.show.advertising.logo');
+      Route::get('/show/branch', [BranchController::class, 'show'])->name('admin.show.branch');
+
+       /*******committee route ********/
+       Route::resource('committee', CommitteeController::class)->only([
+        'index'
+      ]);
+
+       /*******committee member route ********/
+       Route::resource('committeeMember', CommitteeMemberController::class)->only([
+         'index'
+       ]);
+
        //logout route
        Route::get('/logout', [LogoutController::class, 'logout'])->name('logout'); 
 
@@ -106,6 +125,8 @@ Route::middleware(['guest'])->group(function () {
          Route::get('/create/slide/photo', [SlidePhotoController::class, 'create'])->name('admin.add.slide.photo');
          Route::post('/store/slide/photo', [SlidePhotoController::class, 'store'])->name('admin.store.slide.photo');
        
+         Route::get('/edit/slide/photo/{id}', [SlidePhotoController::class, 'edit'])->name('admin.edit.slide.photo');
+         Route::post('/update/slide/photo/{id}', [SlidePhotoController::class, 'update'])->name('admin.update.slide.photo');
          Route::get('/destroy/slide/photo/{id}', [SlidePhotoController::class, 'destroy'])->name('admin.destroy.slide.photo');
         
         
@@ -183,6 +204,32 @@ Route::middleware(['guest'])->group(function () {
          Route::post('/update/office/location/{id}', [OfficeLocationController::class, 'update'])->name('admin.update.office.location');
          Route::get('/delete/office/location/{id}', [OfficeLocationController::class, 'destroy'])->name('admin.delete.office.location');
 
+
+
+         /************advertise logo  **********/
+         Route::get('/create/advertising/logo', [AdvertiseLogoController::class, 'create'])->name('admin.create.advertising.logo');
+         Route::post('/store/advertising/logo', [AdvertiseLogoController::class, 'store'])->name('admin.store.advertising.logo');
+        
+         Route::get('/edit/advertising/logo/{id}', [AdvertiseLogoController::class, 'edit'])->name('admin.edit.advertising.logo');
+         Route::post('/update/advertising/logo/{id}', [AdvertiseLogoController::class, 'update'])->name('admin.update.advertising.logo');
+         Route::get('/delete/advertising/logo/{id}', [AdvertiseLogoController::class, 'destroy'])->name('admin.delete.advertising.logo');
+
+         /*********** branch route  ***********/
+         Route::get('/create/branch', [BranchController::class, 'create'])->name('admin.create.branch');
+         Route::post('/store/branch', [BranchController::class, 'store'])->name('admin.store.branch');
+        
+         Route::get('/edit/branch/{id}', [BranchController::class, 'edit'])->name('admin.edit.branch');
+         Route::post('/update/branch/{id}', [BranchController::class, 'update'])->name('admin.update.branch');
+         Route::get('/delete/branch/{id}', [BranchController::class, 'destroy'])->name('admin.delete.branch');
+
+         /*******committee route ********/
+        Route::resource('committee', CommitteeController::class)->except([
+          'index'
+        ]);
+         /*******committee member route ********/
+         Route::resource('committeeMember', CommitteeMemberController::class)->except([
+          'index'
+        ]);;
         
     });
 

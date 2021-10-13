@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBranchNamesTable extends Migration
+class CreateBranchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateBranchNamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('branch_names', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string('name');
-            $table->text('address');
+            $table->unsignedInteger('district_id'); 
             $table->timestamps();
+
+            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateBranchNamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branch_names');
+        Schema::dropIfExists('branches');
     }
 }

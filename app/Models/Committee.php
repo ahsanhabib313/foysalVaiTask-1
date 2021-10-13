@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BranchName extends Model
+class Committee extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
+    protected $fillable = ['name'];
 }

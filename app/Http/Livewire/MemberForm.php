@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 
+use Livewire\Component;
+use App\Models\Branch;
 use Livewire\WithFileUploads;
 use App\Models\Member;
 use App\Models\Course;
 use App\Models\Division;
 use App\Models\District;
 use App\Models\Upozilla;
-use App\Models\BranchName;
 use App\Models\Qualification;
 use App\Models\Duration;
 
@@ -37,7 +37,7 @@ class MemberForm extends Component
     public $courseName;
     public $duration;
     public $registrationNum;
-    public $branchName;
+    public $branch;
     public $checkAddress;
     public $permanentDivision;
     public $permanentDistrict;
@@ -80,39 +80,43 @@ class MemberForm extends Component
     public $upozillas;
     public $permanentDistricts;
     public $permanentUpozillas;
+    public $branches;
 
     public function render()
     {
         $divisions = Division::all();
-        $branchNames = BranchName::all();
+        //$branches = Branch::all();
         $permanentDivisions = Division::all();
         $qualifications = Qualification::all();
         $courses = Course::all();
         $durations = Duration::all();
 
-        return view('livewire.member-form',compact('divisions', 'branchNames', 'permanentDivisions', 'qualifications', 'courses','durations'));
+        return view('livewire.member-form',compact('divisions', 'permanentDivisions', 'qualifications', 'courses','durations'));
     }
 
-    public function updatedPresentDivision($divId){
+    public function updatedPresentDivision($id){
 
-        $this->districts = District::where('division_id', $divId)->get();
-
-    }
-    public function updatedPresentDistrict($divId){
-
-        $this->upozillas = Upozilla::where('district_id', $divId)->get();
+        $this->districts = District::where('division_id', $id)->get();
 
     }
-    public function updatedPermanentDivision($divId){
+    public function updatedPresentDistrict($id){
 
-        $this->permanentDistricts = District::where('division_id', $divId)->get();
-
-    }
-    public function updatedPermanentDistrict($divId){
-
-        $this->permanentUpozillas = Upozilla::where('district_id', $divId)->get();
+        $this->upozillas = Upozilla::where('district_id', $id)->get();
+        $this->branches = Branch::where('district_id', $id)->get();
 
     }
+    public function updatedPermanentDivision($id){
+
+        $this->permanentDistricts = District::where('division_id', $id)->get();
+
+    }
+    public function updatedPermanentDistrict($id){
+
+        $this->permanentUpozillas = Upozilla::where('district_id', $id)->get();
+
+    }
+
+ 
 
 
     public function validateDate(){
@@ -141,7 +145,7 @@ class MemberForm extends Component
                 'presentPostOffice' => 'required',
                 'presentPostCode' => 'required',
                 'village'         => 'required',
-                'branchName' => 'required',
+                'branch' => 'required',
                 'courseName' => 'required',
                 'duration' =>'required',
                 'registrationNum' => 'required'
@@ -208,7 +212,7 @@ class MemberForm extends Component
             'presentPostOffice' => $this->presentPostOffice,
             'presentPostCode' => $this->presentPostCode,
             'village'         =>$this->village,
-            'branch_name_id' => $this->branchName,
+            'branch_id' => $this->branch,
             'course_id' => $this->courseName,
             'duration_id' => $this->duration,
             'registrationNum' => $this->registrationNum,
