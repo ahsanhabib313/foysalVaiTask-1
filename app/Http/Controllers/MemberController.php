@@ -13,6 +13,40 @@ use Illuminate\Support\Facades\DB;
 class MemberController extends Controller
 {
 
+    //add registration number
+    public function addRegistrationNum(Request $request, $id){
+
+        //get the member data
+        $member = Member::findOrFail($id);
+        
+        return view('admin.addRegistrationNum', compact('member'));
+    }
+
+    //store registration number
+    public function storeRegistrationNum(Request $request, $id){
+
+        //validate the request input
+        $request->validate([
+                'registrationNum' => 'required|unique:members'
+        ]);
+
+        //store the registration number
+        $store = Member::where('id', $id)
+                        ->update([
+                            'registrationNum' => $request->registrationNum,
+                        ]);
+        
+        if($store){
+
+            $request->session()->flash('success', 'Registration Number has been added successfully..');
+            return redirect()->route('admin.show.member');
+
+        }
+        
+        
+    }
+
+
 
     // active the pending members
 

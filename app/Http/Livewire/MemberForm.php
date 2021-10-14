@@ -22,11 +22,9 @@ class MemberForm extends Component
     public $lastName;
     public $fatherName;
     public $motherName;
-    public $email;
     public $gender;
     public $mobile;
     public $nid;
-    public $birthCertificate;
     public $birthOfDate;
     public $presentDivision;
     public $presentDistrict;
@@ -36,7 +34,6 @@ class MemberForm extends Component
     public $village;
     public $courseName;
     public $duration;
-    public $registrationNum;
     public $branch;
     public $checkAddress;
     public $permanentDivision;
@@ -116,29 +113,24 @@ class MemberForm extends Component
 
     }
 
- 
+     public function validateDate(){
 
+         if($this->currentStep == 1){
 
-    public function validateDate(){
-
-        if($this->currentStep == 1){
-
-                $this->validate([
+                 $this->validate([
                 'firstName' => 'required|string',
                 'lastName' => 'required|string',
                 'fatherName' => 'required|string',
                 'motherName' => 'required|string',
-                'email' => 'required|unique:members',
                 'gender' => 'required|string',
                 'mobile' => 'required',
                 'nid' => 'required|string',
-                'birthCertificate' => 'required|string',
                 'birthOfDate' => 'required',
-            ]);   
+            ]);    
 
         }elseif($this->currentStep == 2){
 
-                $this->validate([
+                 $this->validate([
                 'presentDivision' => 'required',
                 'presentDistrict' => 'required',
                 'presentUpozilla' => 'required',
@@ -148,33 +140,33 @@ class MemberForm extends Component
                 'branch' => 'required',
                 'courseName' => 'required',
                 'duration' =>'required',
-                'registrationNum' => 'required'
-            ]);  
+              
+            ]);   
 
         }elseif($this->currentStep == 3 && empty($this->checkAddress)){
             
-            $this->validate([
+             $this->validate([
                 'permanentDivision' => 'required',
                 'permanentDistrict' => 'required',
                 'permanentUpozilla' => 'required',
                 'permanentPostOffice' => 'required',
                 'permanentPostCode' => 'required',
                
-            ]);  
-        }
-    }
+            ]);   
+        } 
+    } 
 
     public function register(){
 
         if($this->currentStep == 4){
 
-             $this->validate([
+              $this->validate([
                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'signature' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'qualification' => 'required',
                 'transectionId' => 'required',
                 'bikashNumber' => 'required'
-            ]);  
+            ]);   
             
             $this->photo->storeAs('public', time().'_photo_'.'.'.$this->photo->getClientOriginalExtension());
             $this->signature->storeAs('public', time().'_signature_'.'.'.$this->signature->getClientOriginalExtension());
@@ -200,11 +192,9 @@ class MemberForm extends Component
             'lastName' => $this->lastName,
             'fatherName' => $this->fatherName,
             'motherName' => $this->motherName,
-            'email' => $this->email,
             'gender' =>$this->gender,
             'mobile' =>$this->mobile,
             'nid' =>$this->nid,
-            'birthCertificate' => $this->birthCertificate,
             'birthOfDate' => $this->birthOfDate,
             'presentDivision_id' => $this->presentDivision,
             'presentDistrict_id' => $this->presentDistrict,
@@ -215,7 +205,6 @@ class MemberForm extends Component
             'branch_id' => $this->branch,
             'course_id' => $this->courseName,
             'duration_id' => $this->duration,
-            'registrationNum' => $this->registrationNum,
             'checkAddress' => $this->checkAddress,
             'permanentDivision_id' => $this->permanentDivision,
             'permanentDistrict_id' => $this->permanentDistrict,

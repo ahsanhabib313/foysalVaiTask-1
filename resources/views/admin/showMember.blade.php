@@ -18,7 +18,6 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Branch</th>
                             <th>Photo</th>
                             <th>Signature</th>
@@ -36,7 +35,6 @@
                             @foreach ($members as $member)
                                 <tr class="bg-light">
                                     <td>{{$member->firstName.' '.$member->lastName}}</td>
-                                    <td>{{$member->email}}</td>
                                     <td>{{$member->branch->name}}</td>
                                     <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
@@ -44,8 +42,10 @@
                                     <td>{{$member->bikas_number}}</td>
                                     <td>{{$member->transectionId}}</td>
                                     @if (Auth::user()->role == 1)
-                                        <td>
-                                                <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success" href="#">Active</a>
+                                       <td>
+                                            <a  style="{{ ($member->registrationNum) ?'display:none':'block' }}"   href="{{route('admin.add.registration.number',$member->id)}}" class="btn btn-info my-1" >Add Registration Num.</a> 
+                                    
+                                            <a href="{{route('admin.active.member',$member->id)}}" class="btn btn-success">Active</a>
                                         </td>
                                     @endif
                                 </tr>

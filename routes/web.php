@@ -132,15 +132,17 @@ Route::middleware(['guest'])->group(function () {
         
          /**********students route*********/
         
-         Route::get('/student/active/{id}', [StudentController::class, 'activeStudent'])->name('admin.active.student');
+       /*   Route::get('/student/active/{id}', [StudentController::class, 'activeStudent'])->name('admin.active.student');
          Route::get('/student/edit/{registrationNum}', [StudentController::class, 'edit'])->name('admin.student.edit');
          Route::post('/student/update/{registrationNum}', [StudentController::class, 'update'])->name('admin.student.update');
-         Route::get('/student/delete/{registrationNum}', [StudentController::class, 'destroy'])->name('admin.student.delete');
+         Route::get('/student/delete/{registrationNum}', [StudentController::class, 'destroy'])->name('admin.student.delete'); */
 
 
 
         /**********member route*********/
        
+        Route::get('admin/add/registrationNum/{id}', [MemberController::class, 'addRegistrationNum'])->name('admin.add.registration.number');
+        Route::post('admin/store/registrationNum/{id}', [MemberController::class, 'storeRegistrationNum'])->name('admin.store.registration.number');
         Route::get('/member/active/{id}', [MemberController::class, 'active'])->name('admin.active.member');
         Route::get('/member/edit/{registrationNum}', [MemberController::class, 'edit'])->name('admin.member.edit');
          Route::post('/member/update/{registrationNum}', [MemberController::class, 'update'])->name('admin.member.update');

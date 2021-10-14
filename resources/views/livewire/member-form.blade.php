@@ -1,6 +1,6 @@
 <div>
     <div>
-        <form wire:submit.prevent="register">
+        <form wire:submit.prevent="register" autocomplete="on">
     
             <div>
                 @if (session()->has('message'))
@@ -55,34 +55,8 @@
                      <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Email</label>
-                                <input type="email" class="form-control" wire:model="email"  placeholder="enter your email">
-                                <span class="text-danger">@error('email'){{$message}} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                          <p>Gender</p>
-                              <div class="form-check form-check-inline">  
-                                <input class="form-check-input" type="radio" value="male" wire:model="gender" >
-                                <label class="form-check-label" for="male">
-                                  Male
-                                </label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="female" wire:model="gender">
-                                <label class="form-check-label" for="female">
-                                  Female
-                                </label>
-                              </div> 
-                              <span class="text-danger">@error('gender'){{$message}} @enderror</span>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
                                 <label for="">Mobile No.</label>
-                                <input type="tel" class="form-control"  wire:model="mobile"  placeholder="enter your mobile number">
+                                <input type="number" class="form-control"  wire:model="mobile"  placeholder="enter your mobile number">
                                 <span class="text-danger">@error('mobile'){{$message}} @enderror</span>
                             </div>
                         </div>
@@ -97,18 +71,27 @@
     
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Birth Certificate No.</label>
-                                <input type="number" class="form-control"  wire:model="birthCertificate"  placeholder="enter your birthday certificate no.">
-                                <span class="text-danger">@error('birthCertificate'){{$message}} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Date of Birth</label>
-                                <input type="date" class="form-control"  wire:model="birthOfDate">
-                                <span class="text-danger">@error('birthOfBirth'){{$message}} @enderror</span>
-                            </div>
+                            <p>Gender</p>
+                                <div class="form-check form-check-inline">  
+                                  <input class="form-check-input" type="radio" value="male" wire:model="gender" >
+                                  <label class="form-check-label" for="male">
+                                    Male
+                                  </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" value="female" wire:model="gender">
+                                  <label class="form-check-label" for="female">
+                                    Female
+                                  </label>
+                                </div> 
+                                <span class="text-danger">@error('gender'){{$message}} @enderror</span>
+                          </div>
+                          <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Date of Birth</label>
+                                    <input type="date" class="form-control"  wire:model="birthOfDate">
+                                    <span class="text-danger">@error('birthOfBirth'){{$message}} @enderror</span>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -216,8 +199,6 @@
                                     <span class="text-danger">@error('courseName'){{$message}} @enderror</span>
                                 </div> 
                             </div>
-                   
-                    
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Course Duration</label>
@@ -234,14 +215,6 @@
                             </div>
                         </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Course Registration No.</label>
-                                <input type="number" class="form-control" wire:model="registrationNum"  placeholder="enter your course registration no..">
-                                <span class="text-danger">@error('registrationNum'){{$message}} @enderror</span>
-                            </div>
-                        </div>
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Branch Name</label>

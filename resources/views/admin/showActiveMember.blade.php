@@ -20,7 +20,7 @@
                             {{Session::get('danger')}}
                     </div> 
                 @endif
-                <table class="table table-responsive table-striped text-dark text-center">
+                <table class="table  table-striped text-dark text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
@@ -46,8 +46,9 @@
                                     <td><img src="{{asset('storage')}}/{{$member->photo}}" alt="" height="50" width="50"></td>
                                     <td><img src="{{asset('storage')}}/{{$member->signature}}" alt=""  height="50" width="50"></td>
                                     <td>{{$member->registrationNum}}</td>
-                                    <td><a href="{{ route('admin.member.edit', $member->registrationNum) }}" class="btn btn-sm btn-info">Edit</a>
-                                        <a href="{{ route('admin.member.delete', $member->registrationNum) }}" class="btn btn-sm btn-danger mt-1">Delete</a></td>
+                                    <td>
+                                        <a href="{{ route('admin.member.edit', $member->registrationNum) }}" class="btn btn-md btn-success">Edit</a>
+                                        <a href="{{ route('admin.member.delete', $member->registrationNum) }}" class="btn btn-md btn-danger mt-1">Delete</a></td>
                                   
                                 </tr>
                             @endforeach

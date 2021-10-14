@@ -1,5 +1,5 @@
 
-@extends('admin.layout.adminpanel')
+@extends('admin.layout.adminPanel')
 @section('content')
     
  <!-- Begin Page Content -->

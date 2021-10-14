@@ -20,11 +20,9 @@ class CreateMembersTable extends Migration
             $table->string('lastName');
             $table->string('fatherName');
             $table->string('motherName');
-            $table->string('email');
             $table->string('gender');
             $table->bigInteger('mobile');
             $table->bigInteger('nid');
-            $table->bigInteger('birthCertificate');
             $table->date('birthOfDate');
             $table->unsignedInteger('presentDivision_id');
             $table->unsignedInteger('presentDistrict_id');
@@ -44,7 +42,7 @@ class CreateMembersTable extends Migration
             $table->string('photo');
             $table->string('signature');
             $table->string('qualification');
-            $table->bigInteger('registrationNum');
+            $table->bigInteger('registrationNum')->nullable();
             $table->string('transectionId');
             $table->bigInteger('bikas_number');
             $table->bigInteger('status');
